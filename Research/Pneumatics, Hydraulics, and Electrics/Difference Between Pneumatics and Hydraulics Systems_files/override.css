@@ -1,0 +1,37 @@
+header .sitelogo{background:transparent url("../images/logo.png") no-repeat top left;margin-top:10px;margin-left:-2px}
+.relatedLinks{display:block}
+.relatedLinks h3{text-transform:uppercase;font-family:Arial,Helvetica;font-size:medium;color:#688D4A;font-weight:bold}
+.relatedLinks li{list-style-image:url('http://s.brighthub.com/s/images/article_detail/dec10/raquogreen.png?sver=20224');margin-bottom:15px;font-family:Arial,Helvetica}
+.relatedLinks a{color:black;text-decoration:none;font-weight:bold;font-size:13px}
+.relatedLinks a:hover{color:#0153A5;text-decoration:underline}
+#bhArticleSeries h3{display:none}
+#bhArticleSeries h4{text-transform:uppercase;font-family:Arial,Helvetica;font-size:medium;color:#688D4A;font-weight:bold}
+#bhArticleSeries ul,#bhArticleSeries ol{margin:0;padding:0;margin-top:15px}
+#bhArticleSeries ul li,#bhArticleSeries ol li{margin:0;padding:0;margin-left:16px;margin-bottom:15px;list-style-image:url('http://s.brighthub.com/s/images/article_detail/dec10/raquogreen.png?sver=20224')}
+#bhArticleSeries a{color:black;font-weight:bold;font-size:13px}
+#footer2{background-color:#D5D5D5;color:#464646;width:100%;text-align:center;padding-top:10px}
+.copyright{display:block}
+#chromeNav{float:left;width:980px;margin-left:-9px;margin-top:2px}
+.chromestyle{width:99%;font-weight:700}
+.chromestyle:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.chromestyle ul{width:100%;text-align:left;margin-left:-5px;padding:4px 0}
+.chromestyle ul li{display:inline;margin-left:0;margin-right:4px}
+.chromestyle ul li a{text-decoration:none;font-size:14px;font-family:arial;color:#fff;margin:0;padding:4px 15px}
+.chromestyle ul li a:hover,.chromestyle ul li a.selected{color:#fff;background-color:#fff;background-image:none}
+.chromestyle ul li a.selected.dropdown{-webkit-border-bottom-left-radius:0;-webkit-border-bottom-right-radius:0;-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.dropmenudiv{position:absolute;top:0;margin-top:-106px;font:normal 12px Verdana;line-height:18px;z-index:100;background-color:#507A8F;width:250px;visibility:hidden;-moz-box-shadow:5px 5px 10px #888;-webkit-box-shadow:5px 5px 10px #888;box-shadow:5px 5px 10px #888}
+.dropmenudiv a{width:auto;display:block;text-indent:3px;border-bottom:1px dotted #575757;text-decoration:none;font-weight:700;color:#fff;padding:8px 20px}
+* html .dropmenudiv a{width:100%}
+.dropmenudiv a:hover{background-color:#F6F6F6;color:#494949}
+.topbar-wrapper{background-color:#E5E5E5;-moz-box-shadow:0 1px 3px rgba(0,0,0,0.25);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25);box-shadow:0 1px 3px rgba(0,0,0,0.25);border-bottom:1px solid #666;padding-top:5px;padding-bottom:5px}
+#chromemenu a{color:#000}
+#chromemenu a:hover,#chromemenu a.selected{background-color:#507A8F;color:#fff}
+.topbar-inner,.topbar-inner2{width:980px;margin-left:auto;margin-right:auto;border:0}
+#footer{height:200px}
+#topicPage h1,#channelPage h1{color:#a7bbc3;font-weight:normal;border-bottom:5px solid #fafafa;font-size:22px;margin-top:10px}
+#subscribe2{margin-bottom:20px;padding:15px;background-color:whiteSmoke}
+#subscribe2 h2{margin-bottom:15px;color:#C46E77;font-size:17px;font-weight:normal;line-height:100%}
+#about{padding:15px;background-color:whiteSmoke;margin-bottom:20px}
+#about h2{color:#C46E77;margin-bottom:15px;font-size:17px;font-weight:normal;line-height:100%}
+#about p{line-height:180%}
+#aboutsite2{display:none}
