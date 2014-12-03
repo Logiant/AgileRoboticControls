@@ -1,4 +1,0 @@
-AgileRoboticControls
-====================
-
-Capstone Research Project
