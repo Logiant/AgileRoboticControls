@@ -14,5 +14,5 @@ P21 = L1/2; %cm
 P22 = L2/2;    %cm
 sampleDistance = 1; %cm
 time = 0.5; %seconds
-maxVals = LegModel(Link1,Link2,L1,L2,L12,L21,P1x,P1y,P11,P21,P22,SemiEllipseStep,sampleDistance,time);
+maxVals = LegModel(Link1,Link2,L1,L2,L12,L21,P1x,P1y,P11,P21,P22,BoxStep,sampleDistance,time);
 %print interesting values here
