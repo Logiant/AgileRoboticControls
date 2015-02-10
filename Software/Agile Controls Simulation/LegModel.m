@@ -66,8 +66,10 @@ minPL2 = min(cylPos(:,2));
 maxP1Acc = max(abs(cylAcc(:,1)));
 maxP2Acc = max(abs(cylAcc(:,2)));
 
+assignin('base', 'dt', dt);
+
 %return important values
-y = [minTheta1, maxTheta1, minTheta2, maxTheta2; ...
-    minPL1, maxPL1, minPL2, maxPL2;...
-    0, maxP1Acc, 0, maxP2Acc,];
+y = Theta;%[minTheta1, maxTheta1, minTheta2, maxTheta2; ...
+  %  minPL1, maxPL1, minPL2, maxPL2;...
+  %  0, maxP1Acc, 0, maxP2Acc,];
 end

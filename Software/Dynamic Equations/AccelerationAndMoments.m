@@ -191,16 +191,15 @@ EffecMomentS4 = cross(rS4,mS4*rS4ddot)+ [IS4x*0 IS4y*0 IS4z*tk4ddot]; %shank 2
 
 %applied forces/torques
 syms g; %gravitational acceleration
-syms FH1x FH1y FK1x FK1y FF1y TH1 TK1; %1
-syms FH2x FH2y FK2x FK2y FF2y TH2 TK2; %2
-syms FH3x FH3y FK3x FK3y FF3y TH3 TK3; %2
-syms FH4x FH4y FK4x FK4y FF4y TH4 TK4; %2
-syms FF1x FF2x FF3x FF4x; %friction in the X
+syms FH1x FH1y FK1x FK1y FF1x FF1y TH1 TK1; %1
+syms FH2x FH2y FK2x FK2y FF2x FF2y TH2 TK2; %2
+syms FH3x FH3y FK3x FK3y FF3x FF3y TH3 TK3; %2
+syms FH4x FH4y FK4x FK4y FF4x FF4y TH4 TK4; %2
 
 
 %weight equations
 Bw = mB * g;
-S1w = mS1 * g; T1w = mT1 * g; %weights
+T1w = mT1 * g; S1w = mS1 * g; %weights
 T2w = mT2 * g; S2w = mS2 * g; %weights
 T3w = mT3 * g; S3w = mS3 * g; %weights
 T4w = mT4 * g; S4w = mS4 * g; %weights
@@ -249,9 +248,9 @@ EFT3y = T3w(2) - FH3y + FK3y; %y force sum = ma
 ETT3 = TH3 + TK3 + cross(rH3, -FH3) + cross(rT3, T3w) + cross(rK3, FK3); %sum of the torque = effectiveMoment
 ETT3 = ETT3(3); %get z component
 %Body
-EFBx = FH1x + FH2x; %x force sum = ma
-EFBy = Bw(2) + FH1y + FH2y; %y force sum = ma
-ETB = TH1 + cross(rH1, FH1) + cross(rH2, FH2) + cross(rB, Bw); %sum of the torque = effectiveMoment
+EFBx = FH1x + FH2x + FH3x + FH4x; %x force sum = ma
+EFBy = Bw(2) + FH1y + FH2y + FH3y + FH4y; %y force sum = ma
+ETB = TH1 + TH2 + TH3 + TH4 + cross(rH1, FH1) + cross(rH2, FH2) + cross(rH3, FH3) + cross(rH4, FH4) +cross(rB, Bw); %sum of the torque = effectiveMoment
 ETB = ETB(3); %get z component
 %Thigh 2
 EFT2x = -FH2x + FK2x; %x force sum = ma
@@ -292,8 +291,13 @@ reactions = [Shank1Funcs(1:2), Thigh1Funcs(1:2), Shank2Funcs(1:2), Thigh2Funcs(1
 S = solve(reactions,FH1x, FH2x, FH3x, FH4x, FH1y, FH2y, FH3y, FH4y, FK1x, FK2x, FK3x, FK4x, FK1y, FK2y, FK3y, FK4y);
 FH1x = S.FH1x; FH2x = S.FH2x; FH3x = S.FH3x; FH4x = S.FH4x;
 FH1y = S.FH1y; FH2y = S.FH2y; FH3y = S.FH3y; FH4y = S.FH4y;
+FK1x = S.FK1x; FK2x = S.FK2x; FK3x = S.FK3x; FK4x = S.FK4x;
+FK1y = S.FK1y; FK2y = S.FK2y; FK3y = S.FK3y; FK4y = S.FK4y;
+
+th1ddot = 0;
 
 funcs = [Shank1Funcs(3), Thigh1Funcs(3), Shank2Funcs(3), Thigh2Funcs(3), Shank3Funcs(3), Thigh3Funcs(3), ...
-    Thigh4Funcs(3), Shank4Funcs(3), BodyFuncs];
+    Thigh4Funcs(3), Shank4Funcs(3)];
 Torque = solve(funcs, TH1, TH2, TH3, TH4, TK1, TK2, TK3, TK4);
-Q = solve(funcs, xddot, yddot, tbddot, th1ddot, th2ddot, th3ddot, th4ddot, tk1ddot, tk2ddot, tk3ddot, tk4ddot);
+
+%Q = solve(funcs, xddot, yddot, tbddot, th1ddot, th2ddot, th3ddot, th4ddot, tk1ddot, tk2ddot, tk3ddot, tk4ddot);

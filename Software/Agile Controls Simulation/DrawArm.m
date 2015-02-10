@@ -20,7 +20,7 @@ ylabel('Y Position [m]');
         movegui('northwest');
         title('Robot Step Animation');
         plot(x(1:i)/100, y(1:i)/100);
-        pause(0.05)
+ %       pause(0.05)
         %draw cylinder positions
         %plot the cylinder lengths
         figure(2);
