@@ -3,8 +3,8 @@
 clear; clc; close all;
 Link1 = 'Link1.stl';
 Link2 = 'Link2.stl';
-L1 = 52;    %cm
-L2 = 24;    %cm
+L1 = 43.3;    %cm
+L2 = 27;    %cm
 L12 = L1;   %cm
 L21 = 0;    %cm
 P1x = -5;   %cm
@@ -12,8 +12,8 @@ P1y = 0;    %cm
 P11 = L1/2; %cm
 P21 = L1/2; %cm
 P22 = L2/2;    %cm
-sampleDistance = 2; %cm
-time = 2; %seconds
+sampleDistance = 1; %cm
+time = 01; %seconds
 Thetas = LegModel(Link1,Link2,L1,L2,L12,L21,P1x,P1y,P11,P21,P22,SemiEllipseStep,sampleDistance,time);
 %print interesting values here
 

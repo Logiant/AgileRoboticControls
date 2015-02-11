@@ -6,7 +6,7 @@ positions = [cos(positions(1,:)*pi/180)*halfStep; sin(positions(2,:)*pi/180)*ste
 pos2 = [0:180; 0:180];
 pos2 = [cos(pos2(1,:)*pi/180)*halfStep; positions(2,:)*0]; %set Y to zero
 positions = [positions, pos2];
-positions(2,:) = positions(2,:) - .7;
+positions(2,:) = positions(2,:) - .5;
 positions(1,:) = positions(1,:) + .02;
 
 for i = 2:length(positions)-1;
