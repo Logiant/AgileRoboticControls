@@ -3,8 +3,8 @@
 clear; clc; close all;
 Link1 = 'Link1.stl';
 Link2 = 'Link2.stl';
-L1 = 26;    %cm
-L2 = 12;    %cm
+L1 = 52;    %cm
+L2 = 24;    %cm
 L12 = L1;   %cm
 L21 = 0;    %cm
 P1x = -5;   %cm
@@ -13,7 +13,7 @@ P11 = L1/2; %cm
 P21 = L1/2; %cm
 P22 = L2/2;    %cm
 sampleDistance = 2; %cm
-time = 1; %seconds
+time = 2; %seconds
 Thetas = LegModel(Link1,Link2,L1,L2,L12,L21,P1x,P1y,P11,P21,P22,SemiEllipseStep,sampleDistance,time);
 %print interesting values here
 
@@ -34,9 +34,10 @@ ddTheta2 = diff(dTheta2)/dt;
 index1 = find(max(abs(ddTheta1)) == abs(ddTheta1)); %Find discontinuity
 index2 = find(max(abs(ddTheta2)) == abs(ddTheta2)); %Find discontinuity
 
+dIndex = min(min(index1), min(index2)) - 15;
 
-index1 = find(max(abs(ddTheta1(1:index1-10))) == abs(ddTheta1(1:index1-10))) - 15; %get max before
-index2 = find(max(abs(ddTheta2(1:index1-10))) == abs(ddTheta2(1:index2-10))) - 15; %get max before
+index1 = find(max(abs(ddTheta1(1:index1-15))) == abs(ddTheta1(1:index1-15))) - 15; %get max before
+index2 = find(max(abs(ddTheta2(1:index1-15))) == abs(ddTheta2(1:index2-15))) - 15; %get max before
 
 thetas1 = [theta1(index1) theta2(index1)];
 dThetas1 = [dTheta1(index1) dTheta2(index1)];
@@ -140,5 +141,21 @@ TI2 = subs(TI2, th1dot, dThetas2(1));    TI2 = subs(TI2, tk1dot, dThetas2(2));
 TI2 = subs(TI2, th1ddot, ddThetas2(1));  TI2 = subs(TI2, tk1ddot, ddThetas2(2));
 
 
-eval(TI1)
-eval(TI2)
+eval(TI1);
+eval(TI2);
+
+
+TTotal = 0;
+for i=1:dIndex%Loop to get all the torques added to the sum
+ 
+    Ti = T;
+    Ti = subs(Ti, th1, theta1(i));        Ti = subs(Ti, tk1, theta2(i));
+    Ti = subs(Ti, th1dot, dTheta1(i));    Ti = subs(Ti, tk1dot, dTheta2(i));
+    Ti = subs(Ti, th1ddot, ddTheta1(i));  Ti = subs(Ti, tk1ddot, ddTheta2(i));
+
+    TTotal = TTotal + eval(Ti);
+end
+
+%Divide the torques by the dIndex
+TTotal = TTotal / dIndex;
+
