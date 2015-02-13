@@ -44,12 +44,12 @@ cdt = cumsum(dt);
         subplot(2,1,2);
         title('Cylinder 1 - Acceleration vs Time [m/s/s]');
         axis([0, sum(dt), min(cylAcc(:,1))*.95, max(cylAcc(:,1))*1.05]);
-        plot(cdt(1:min(i, length(cdt)-1)), cylAcc(1:min(i, length(cdt)-1),1));
+        plot(cdt(1:min(i, length(cdt))), cylAcc(1:min(i, length(cdt)),1));
         figure(3);
         hold on;
         subplot(2,1,2);
         title('Cylinder 2 - Acceleration vs Time [m/s/s]');
         axis([0, sum(dt), min(cylAcc(:,2))*.95, max(cylAcc(:,2))*1.05]);
-        plot(cdt(1:min(i, length(cdt)-1)), cylAcc(1:min(i, length(cdt)-1),2)); 
+        plot(cdt(1:min(i, length(cdt))), cylAcc(1:min(i, length(cdt)),2)); 
     end
 end

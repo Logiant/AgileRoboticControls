@@ -44,29 +44,31 @@ footVelocity = totalDistance/time;
 for i = 1:length(footPosition)
     cylPos(i,:) = FootToCylinder(L12, L2-L21, P1x, P1y, P11, P21, P22, footPosition(i,1), footPosition(i,2));
 end
-dt = 0:time/(length(footPosition)-1):time;
+for i = 1:length(footPosition)-1
+    d(i) = Distance(footPosition(i,1), footPosition(i,2), footPosition(i+1,1), footPosition(i+1,2));
+end
+dt = d / footVelocity;
+assignin('base', 'dt', dt');
+
 %calculate acceleration parameters
 cylAcc(:,1) = diff(cylPos(:,1), 2);
 cylAcc(:,2) = diff(cylPos(:,2), 2);
-dta = dt(2:length(dt)-1);
 
 %draw the foot position
-DrawArm(Link1, Link2, drawPosition(:,1), drawPosition(:,2), L12, L2-L21, cylPos, dt, cylAcc, dta);
-
-maxTheta1 = max(Theta(:,1));
-maxTheta2 = max(Theta(:,2));
-minTheta1 = min(Theta(:,1));
-minTheta2 = min(Theta(:,2));
-
-maxPL1 = max(cylPos(:,1));
-maxPL2 = max(cylPos(:,2));
-minPL1 = min(cylPos(:,1));
-minPL2 = min(cylPos(:,2));
-
-maxP1Acc = max(abs(cylAcc(:,1)));
-maxP2Acc = max(abs(cylAcc(:,2)));
-
-assignin('base', 'dt', dt);
+DrawArm(Link1, Link2, drawPosition(:,1), drawPosition(:,2), L12, L2-L21, cylPos, dt, cylAcc);
+% 
+% maxTheta1 = max(Theta(:,1));
+% maxTheta2 = max(Theta(:,2));
+% minTheta1 = min(Theta(:,1));
+% minTheta2 = min(Theta(:,2));
+% 
+% maxPL1 = max(cylPos(:,1));
+% maxPL2 = max(cylPos(:,2));
+% minPL1 = min(cylPos(:,1));
+% minPL2 = min(cylPos(:,2));
+% 
+% maxP1Acc = max(abs(cylAcc(:,1)));
+% maxP2Acc = max(abs(cylAcc(:,2)));
 
 %return important values
 y = Theta;%[minTheta1, maxTheta1, minTheta2, maxTheta2; ...

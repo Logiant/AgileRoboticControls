@@ -19,7 +19,7 @@ shankCg = CONSTANTS(10);            % m
 sMass = CONSTANTS(11);              % kg
 frictionFactor = CONSTANTS(12);     % unitless
 
-%Cylinder velocities/accelerations, not relevant
+
 L12 = L1;   %cm
 L21 = 0;    %cm
 P1x = -5;   %cm
@@ -169,7 +169,8 @@ Tval = 0;
 Findex = 1;
 Fval = 0;
 
-fprintf('Calculaing Average and Maximum Torque/Force...\n');
+TTotal = [0; 0; 0; 0; 0; 0; 0; 0];
+FTotal = [0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0];
 for i=1:length(ddTheta1)%Loop to get all the torques added to the sum
  
     Ti = T;
@@ -190,21 +191,18 @@ for i=1:length(ddTheta1)%Loop to get all the torques added to the sum
         FTotal(:,i) = eval(Fi);
         TTotal(:,i) = eval(Ti);
     end
-    if mean(FTotal(:,i)) > Fval %probably should find equivilant force instead of max average...
-        Fval = FTotal(:,i);
+    if mean(FTotal(i,:)) > Fval %probably should find equivilant force instead of max average...
+        Fval = FTotal(i,:);
         Findex = i;
     end
-    if mean(TTotal(:,i)) > Tval %compare the max singular torque instead?
-        Tval = mean(TTotal(:,i));
+    if mean(TTotal(,i)) > Tval %compare the max singular torque instead?
+        Tval = mean(TTotal(i,:));
         Tindex = i;
     end
 end
-
-fprintf('Fetching robot state at critical points\n');
-
 %Divide the torques by the number of vals - average
-avgT = (trapz(t(2:length(t)-1),TTotal') / sum(dt))';
-avgF = (trapz(t(2:length(t)-1),FTotal') / sum(dt))';
+avgT = trapz(t,TTotal) / sum(dt);
+avgF = trapz(t,FTotal) / sum(dt);
 
 thetas1 = [theta1(Tindex) theta2(Tindex)];
 dThetas1 = [dTheta1(Tindex) dTheta2(Tindex)];
@@ -214,7 +212,6 @@ thetas2 = [theta1(Findex) theta2(Findex)];
 dThetas2 = [dTheta1(Findex) dTheta2(Findex)];
 ddThetas2 = [ddTheta1(Findex) ddTheta2(Findex)];
 
-fprintf('Calculaing Forces and Torques...\n');
 
 FI1 = F;
 TI1 = T;
@@ -243,6 +240,4 @@ TI1=eval(TI1);
 TI2=eval(TI2);
 FI1=eval(FI1);
 FI2=eval(FI2);
-
-fprintf('Simulation complete!\n');
 
