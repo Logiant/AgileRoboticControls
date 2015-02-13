@@ -190,11 +190,11 @@ for i=1:length(ddTheta1)%Loop to get all the torques added to the sum
         FTotal(:,i) = eval(Fi);
         TTotal(:,i) = eval(Ti);
     end
-    if mean(FTotal(:,i)) > Fval %probably should find equivilant force instead of max average...
+    if mean(FTotal(:,i)) > mean(Fval) && (i > 1) %probably should find equivilant force instead of max average...
         Fval = FTotal(:,i);
         Findex = i;
     end
-    if mean(TTotal(:,i)) > Tval %compare the max singular torque instead?
+    if mean(TTotal(:,i)) > mean(Tval) && (i > 1)%compare the max singular torque instead?
         Tval = mean(TTotal(:,i));
         Tindex = i;
     end
