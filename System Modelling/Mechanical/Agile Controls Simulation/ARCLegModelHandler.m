@@ -244,7 +244,7 @@ TI2=eval(TI2);
 FI1=eval(FI1);
 FI2=eval(FI2);
 if ~dragging
-    fprintf('Calculating step impulse force');
+    fprintf('Calculating step impulse force\n');
     %F = mLeg * vLeg - impulse momentum equations
 end
 
