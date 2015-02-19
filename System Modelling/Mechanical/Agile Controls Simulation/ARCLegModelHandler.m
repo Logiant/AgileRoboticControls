@@ -1,15 +1,15 @@
 %Handles configuration of the leg model and inputting values in LegModel.m
 %Logan Beaver 10/23/14
 clear; clc; close all;
-Link1 = 'Link1.stl';
-Link2 = 'Link2.stl';
+Link1 = 'Thigh.stl';
+Link2 = 'Shank.stl';
 %read excel data%
 CONSTANTS = ReadExcelData();
 %assign the 12 read variables
 totalWeight = CONSTANTS(1);         % n
 bodyLength = CONSTANTS(2);          % m
 bodyCg = CONSTANTS(3);              % m from front
-L1 = CONSTANTS(4);                  % cm
+L1 = CONSTANTS(4);                  % cm1
 iT = CONSTANTS(5);                  % m^4
 thighCg = CONSTANTS(6);             % m
 tMass = CONSTANTS(7);               % kg

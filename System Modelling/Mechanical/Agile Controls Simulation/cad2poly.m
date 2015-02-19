@@ -19,6 +19,26 @@ function [p,V,p2,V2] = cad2poly(filename, filename2)
 % F-faces, V-vertices, C-color
 [F,V,C] = cad2mat(filename);
 [F2,V2,C2] = cad2mat(filename2);
+if strcmp(filename, 'Thigh.stl')
+    V(:,2) = V(:,2) - 0.445;
+    V(:,2) = V(:,2)*(-1);
+    V(:,1) = V(:,1) - 0.05;
+    x = V(:,1);
+    V(:,1) = V(:,2);
+    V(:,2) = x;
+    V(:,1) = V(:,1);
+    dTheta = 33;
+    V = (V * [cosd(dTheta) -sind(dTheta) 0;
+             sind(dTheta) cosd(dTheta)   0;
+             0                  0        1]);
+end
+if strcmp(filename2, 'Shank.stl')
+    x2 = V2(:,1);
+    V2(:,1) = V2(:,2);
+    V2(:,2) = x2 - 0.05;
+    V2(:,1) = V2(:,1) * -1 + 0.27;
+end
+
 
 h = figure(1);
 clf;

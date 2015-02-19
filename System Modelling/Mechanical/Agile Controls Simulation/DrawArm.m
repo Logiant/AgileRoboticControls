@@ -5,10 +5,10 @@ function DrawArm(Link1, Link2, x, y, D1, D2, cylPos, dt, cylAcc)
 [p,link1Pnts,p2,link2Pnts] = cad2poly(Link1, Link2);
 view(2); %2D
 %set plot bounds
-maxVal = (max(max(max(abs(x)), max(abs(y))), 0))/100 + .25;
+maxVal = (max(max(max(abs(x)), max(abs(y))), 0))/100 * 1.25;
 figure(1);
 hold on;
-axis([-maxVal maxVal -maxVal maxVal]);
+axis([-maxVal maxVal -maxVal 0.05]);
 xlabel('X Position [m]');
 ylabel('Y Position [m]');
 cdt = cumsum(dt);
