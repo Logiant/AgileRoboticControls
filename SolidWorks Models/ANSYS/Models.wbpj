@@ -592,17 +592,24 @@
 "8ce71a5c-eed3-4f9a-b2ce-c4cc6603cd29": "/ReportDataContainer/CellSection:Model 6",
 "d27aa466-1f54-4da7-ab93-07f531ed699b": "/ReportDataContainer/CellSection:Setup 3",
 "ed47a5a5-63c4-4e03-908d-830f5c9edcc6": "/ReportDataContainer/CellSection:Solution 6",
-"817e4a4c-794c-49e8-b80a-d5dbe6f01c93": "/ReportDataContainer/CellSection:Results 3"
+"817e4a4c-794c-49e8-b80a-d5dbe6f01c93": "/ReportDataContainer/CellSection:Results 3",
+"61d9fef2-e6e8-44ce-8c37-bebe0cec27d8": "/Model 2/MechanicalModel:MechanicalModel",
+"26589caa-7141-4140-9f56-d0bcf7ab80fd": "/Setup 2/SimulationSetup:SetupObject for Structural|Static|ANSYS",
+"08c1e1cb-ae4e-4540-a012-1f55b4e570b6": "/Solution 2/SimulationSolution:SolutionObject for Structural|Static|ANSYS",
+"bad372fb-fb9c-4ecc-95a0-3b5eb7d46671": "/Results 2/SimulationResults:ResultsObject for Structural|Static|ANSYS",
+"3367f478-06e0-4241-80ed-2f25d315e2c4": "/FileContainer/FileReference:F17",
+"74147edf-1448-4ac4-9ee8-fa70c99410e0": "/FileContainer/FileReference:F16"
 }</ReferenceList>
     </ReferenceCache>
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">7195</timestamp-max>
+    <timestamp-max valType="Int64">7712</timestamp-max>
     <framework-build-version valType="String">15.0.492.0</framework-build-version>
-    <last-saved-utc valType="String">02/19/2015 19:48:23</last-saved-utc>
+    <last-saved-utc valType="String">02/19/2015 21:06:00</last-saved-utc>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">campbellj@MSOE-5CB3270W4B:C:\Users\campbellj\AppData\Local\Temp\WorkbenchLogs\CoreEvents8860.log</ArrayEntry>
       <ArrayEntry Index="1">campbellj@MSOE-5CB3270W4B:C:\Users\campbellj\AppData\Local\Temp\WorkbenchLogs\CoreEvents4656.log</ArrayEntry>
       <ArrayEntry Index="2">campbellj@MSOE-5CB3270W4B:C:\Users\campbellj\AppData\Local\Temp\WorkbenchLogs\CoreEvents15328.log</ArrayEntry>
+      <ArrayEntry Index="3">campbellj@MSOE-5CB3270W4B:C:\Users\campbellj\AppData\Local\Temp\WorkbenchLogs\CoreEvents9284.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
   </Project>
@@ -681,12 +688,22 @@
         <object-name valType="String">F13</object-name>
         <member-data valType="String">{"DisplayText": "SYS-1.mechdb", "FileType": $$0226c7b4-db93-4fb3-9fed-ac85fabc5783, "DependentFiles": [], "ContainerAssociations": ["Model 1"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\global\MECH\SYS-1.mechdb", "ReferenceCount": 1}</member-data>
       </Object>
+      <Object Name="/FileContainer/FileReference:F16" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F16</object-name>
+        <member-data valType="String">{"DisplayText": "SYS-2.engd", "FileType": $$ba9300fe-0b1b-45bf-b06e-24d5bb237dcb, "DependentFiles": [], "ContainerAssociations": ["Model 2"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\global\MECH\SYS-2.engd", "ReferenceCount": 1}</member-data>
+      </Object>
+      <Object Name="/FileContainer/FileReference:F17" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F17</object-name>
+        <member-data valType="String">{"DisplayText": "SYS-2.mechdb", "FileType": $$0226c7b4-db93-4fb3-9fed-ac85fabc5783, "DependentFiles": [], "ContainerAssociations": ["Model 2"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\global\MECH\SYS-2.mechdb", "ReferenceCount": 1}</member-data>
+      </Object>
       <container-type valType="String">Project:FileContainer</container-type>
       <static-id valType="String">FileManager</static-id>
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 7142, "Input": 1256, "Output": 1256}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 7705, "Input": 1256, "Output": 1256}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
@@ -720,7 +737,7 @@
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 7182, "Input": 1260, "Output": 1258}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 7689, "Input": 1260, "Output": 1258}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
@@ -869,7 +886,7 @@
       <Object Name="/Schematic/Component:Model 2" Version="1.0">
         <class-type valType="String">Component</class-type>
         <object-name valType="String">Model 2</object-name>
-        <member-data valType="String">{"DisplayText": "Model", "ImageName": "model2", "ComponentStateOnLastFailure": "UpToDate", "AlwaysBePartOfDpUpdate": False, "FullyUpToDateOnDps": None, "CoupledClients": [], "SubComponents": [], "DataSharedFrom": None, "DataSharing": "None", "DataContainer": "Model 2", "Template": $$1a47303e-a141-492a-8e0d-e1fe9e2ecbb2, "InSystem": $$ebe5123f-47b4-419a-8ed2-bff5263ba07b, "Sources": {"EngineeringData": {"$$a9f7148d-fc1f-48f3-95c6-1bee5e6d0d74": None}, "Geometry": {"$$5619f47a-73fe-4e8c-bbac-ab99ab7f2a91": None}}, "Notes": None, "UsedLicenses": None, "ActiveTransferComponents": [], "Solver": "", "IsFailedState": False}</member-data>
+        <member-data valType="String">{"DisplayText": "Model", "ImageName": "model2", "ComponentStateOnLastFailure": "UpToDate", "AlwaysBePartOfDpUpdate": False, "FullyUpToDateOnDps": None, "CoupledClients": [], "SubComponents": [], "DataSharedFrom": None, "DataSharing": "None", "DataContainer": "Model 2", "Template": $$1a47303e-a141-492a-8e0d-e1fe9e2ecbb2, "InSystem": $$ebe5123f-47b4-419a-8ed2-bff5263ba07b, "Sources": {"EngineeringData": {"$$a9f7148d-fc1f-48f3-95c6-1bee5e6d0d74": None}, "Geometry": {"$$5619f47a-73fe-4e8c-bbac-ab99ab7f2a91": None}}, "Notes": None, "UsedLicenses": {}, "ActiveTransferComponents": [], "Solver": "", "IsFailedState": False}</member-data>
       </Object>
       <Object Name="/Schematic/Component:Setup 2" Version="1.0">
         <class-type valType="String">Component</class-type>
@@ -921,7 +938,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 7180, "Input": 7131, "Output": 1261}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 7679, "Input": 7687, "Output": 1261}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
@@ -1128,7 +1145,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 6590, "Input": 1515, "Output": 1515}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 7632, "Input": 1515, "Output": 1515}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
