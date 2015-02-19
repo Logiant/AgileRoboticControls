@@ -1,0 +1,37 @@
+/batch
+*get,_wallstrt,active,,time,wall
+! ANSYS input file written by Workbench version 15.0.7  Release
+/assign,rstp,file,rst              ! Force Eigen analysis to write to file.rst because WB expects it
+/solu
+antype,,restart,,,perturbation
+/title,Models--Linear Buckling (D5)
+perturb,buckle,,CURRENT,ALLKEEP                    ! linear buckling analysis keeping loads from pre-stress analysis
+solve, elform                                       ! Generate matrices needed for perturbation analysis
+bucopt,lanb,1,,,Range
+outres,erase
+outres,all,none
+outres,nsol,all
+mxpand                    ! default expand in case of complex solution
+! *********** WB SOLVE COMMAND ***********
+! check interactive state
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,ne,0,then
+/eof
+*endif
+solve
+/com *************** Write FE CONNECTORS ********* 
+CEWRITE,file,ce,,INTE
+fini
+*get,_wallasol,active,,time,wall
+/post1
+xmlo,ENCODING,ISO-8859-1
+xmlo,parm
+/xml,parm,xml
+fini
+/gopr
+*get,_walldone,active,,time,wall
+_preptime=(_wallbsol-_wallstrt)*3600
+_solvtime=(_wallasol-_wallbsol)*3600
+_posttime=(_walldone-_wallasol)*3600
+_totaltim=(_walldone-_wallstrt)*3600
+/wb,file,end               ! done with WB generated input
