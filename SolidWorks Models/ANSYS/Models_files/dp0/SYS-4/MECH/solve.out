@@ -1,0 +1,513 @@
+
+ ANSYS Academic Teaching Advanced                  
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *                  ANSYS 15.0 LEGAL NOTICES                   *
+ ***************************************************************
+ *                                                             *
+ * Copyright 2014 SAS IP, Inc.  All rights reserved.           *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of ANSYS, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the ANSYS, Inc. online documentation or the ANSYS, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * ANSYS, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * ANSYS, Inc. is a UL registered                              *
+ * ISO 9001:2008 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the ANSYS, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the ANSYS, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ Point Releases and Patches installed:   
+     
+ ANSYS, Inc. Products 15.0.7 
+ ANSYS Mechanical Products 15.0.7
+ ANSYS Autodyn 15.0.7
+ ANSYS LS-DYNA 15.0.7
+ ANSYS CFX (includes ANSYS CFD-Post) 15.0.7  
+ ANSYS Fluent (includes ANSYS CFD-Post) 15.0.7   
+ ANSYS TurboGrid 15.0.7  
+ ANSYS Polyflow (includes ANSYS CFD-Post) 15.0.7 
+ ANSYS Aqwa 15.0.7   
+ ANSYS ICEM CFD 15.0.7   
+ ANSYS Icepak (includes ANSYS CFD-Post) 15.0.7   
+ Catia, Version 6 15.0.7 
+ ANSYS, Inc. License Manager 15.0.7  
+
+
+          *****  ANSYS COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = COPY
+     2 PARALLEL CPUS REQUESTED
+  DESIGNXPLORER REQUESTED
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+
+ 00313154          VERSION=WINDOWS x64     RELEASE= 15.0.7  Maintenance Release UP20140420
+ CURRENT JOBNAME=file  11:54:36  FEB 23, 2015 CP=      1.030
+
+
+ PARAMETER _DS_PROGRESS =     999.0000000    
+
+ /INPUT FILE= ds.dat  LINE=       0
+
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9100000    
+
+ ASSIGN FILE RSTP TO file.rst                                                                                                                                                                                                                                                            
+
+ *** NOTE ***                            CP =       1.076   TIME= 11:54:36
+ File= file.rst does not exist and will be created.                      
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  RESTART WILL BE PERFORMED FOR THE ANALYSIS OF LINEAR PERTURBATION
+  RESTART WILL BE PERFORMED BASED ON: 
+   PREVIOUS LOADSTEP =      1 SUBSTEP =      1
+
+ RESUME ANSYS DATA FROM FILE NAME=file.rdb                                                                                                                                                                                                                                                            
+     DO NOT PLOT ANYTHING
+
+ *** ANSYS GLOBAL STATUS *** 
+
+ TITLE = Models--Static Structural (B5)                                        
+ ANALYSIS TYPE =  STATIC (STEADY-STATE)
+ NUMBER OF ELEMENT TYPES =      9
+      4245 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        4249
+      8041 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           8041
+      3 COMPONENTS CURRENTLY DEFINED
+ MAXIMUM LINEAR PROPERTY NUMBER        =       1
+ MAXIMUM REAL CONSTANT SET NUMBER      =       8
+ ACTIVE COORDINATE SYSTEM              =       0  (CARTESIAN)  
+ MAXIMUM CONSTRAINT EQUATION NUMBER    =      24
+ NUMBER OF SPECIFIED CONSTRAINTS       =     516
+ NUMBER OF NODAL LOADS                 =      12
+ CURRENT LOAD CASE =      0 OF      0
+ LOAD SET   =       1
+ SUBSTEP    =       1
+ TIME/FREQ  =    1.0000    
+
+ INITIAL JOBNAME = file
+ CURRENT JOBNAME = file
+
+ RESTART PROCEDURE RE-BUILDS BOUNDARY CONDITIONS
+ AND LOADING INFO UPTO THE CURRENT LOADSTEP 
+
+ READ ANSYS LOADS DATA FROM FILE= file.ldhi                                                                                                                                                                                                                                                           
+
+ DELETE SOLID MODEL BOUNDARY CONDITIONS
+ 
+ NUMBER OF NODAL CONSTRAINTS DELETED                       =     516
+ NUMBER OF NODAL FORCES DELETED                            =      12
+
+ TITLE= 
+ Models--Linear Buckling (D5)                                                  
+
+
+ PERTURB: Enabling perturbation analysis with prestressed linear buckling solution.
+ PERTURB: Enabling perturbation contact status remains the same as in restart step.
+ PERTURB: Enabling perturbation to keep all boundary conditions.
+
+ *****  ANSYS SOLVE    COMMAND  *****
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
+ ANSYS Academic Teaching Advanced                  
+ 00313154          VERSION=WINDOWS x64   11:54:36  FEB 23, 2015 CP=      1.139
+
+ Models--Linear Buckling (D5)                                                  
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ   ROTX ROTY ROTZ
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+      RESTART. . . . . . . . . . . . . . . . . . .ON
+   LINEAR PERTURBATION . . . . . . . . . . . . . .ON
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+
+ *** WARNING ***                         CP =       1.170   TIME= 11:54:36
+ Material number 2 (used by element 4140 ) should normally have at least 
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
+
+ *** NOTE ***                            CP =       1.170   TIME= 11:54:36
+ The step data was checked and warning messages were found.              
+  Please review output or errors file (                                  
+ D:\MyDocs\Documents\Senior\Fall\Senior Design                           
+ 1\AgileRoboticControls\SolidWorks                                       
+ Models\ANSYS\_ProjectScratch\ScrDB29\file.err ) for these warning       
+ messages.                                                               
+
+                      L O A D   S T E P   O P T I O N S
+
+   SOLUTION TO BE PERTURBED CORRESPONDS TO
+      TIME . . . . . . . . . . . . . . . . . . . .  1.0000    
+      LOAD STEP. . . . . . . . . . . . . . . . . .     1
+      SUBSTEP. . . . . . . . . . . . . . . . . . .     1
+   STRESS-STIFFENING . . . . . . . . . . . . . . .    ON
+
+ *** NOTE ***                            CP =       1.295   TIME= 11:54:36
+ This SOLVE command is only used to generate the matrices needed to      
+ perform the linear perturbation analysis.  The linear perturbation      
+ analysis corresponds to time = 1 (load step = 1, substep = 1).  No      
+ results are being written.                                              
+
+
+ *** NOTE ***                            CP =       1.295   TIME= 11:54:36
+ The PCG solver has automatically set the level of difficulty for this   
+ model to 2.                                                             
+
+ LINEAR PERTURBATION ANALYSIS PROCEDURE KEEPS ALL
+ BOUNDARY CONDITIONS IN DATABASE
+
+
+ USE SYM. BLOCK LANCZOS METHOD TO EXTRACT       1 MODES
+  SHIFT POINT FOR EIGENVALUE CALCULATION=  0.0000    
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+
+ EXPAND ALL EXTRACTED MODES
+  DO NOT CALCULATE ELEMENT RESULTS
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_                         ( =   0.00000     )  NE  
+      0                                 ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *****  ANSYS SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =       2.059   TIME= 11:54:36
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** NOTE ***                            CP =       2.059   TIME= 11:54:36
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ D:\MyDocs\Documents\Senior\Fall\Senior Design                           
+ 1\AgileRoboticControls\SolidWorks                                       
+ Models\ANSYS\_ProjectScratch\ScrDB29\file.err ) for these warning       
+ messages.                                                               
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+      --- GIVE SUGGESTIONS AND RESET THE KEY OPTIONS ---
+
+ ELEMENT TYPE    1 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
+ ANSYS Academic Teaching Advanced                  
+ 00313154          VERSION=WINDOWS x64   11:54:36  FEB 23, 2015 CP=      2.059
+
+ Models--Linear Buckling (D5)                                                  
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ   ROTX ROTY ROTZ
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .BUCKLING             
+      EXTRACTION METHOD. . . . . . . . . . . . . .BLOCK LANCZOS
+   LINEAR PERTURBATION . . . . . . . . . . . . . .ON
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+   PRESTRESS EFFECTS INCLUDED IF AVAILABLE . . . .YES
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** WARNING ***                         CP =       2.059   TIME= 11:54:36
+ Material number 2 (used by element 4140 ) should normally have at least 
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
+
+ *** NOTE ***                            CP =       2.059   TIME= 11:54:36
+ The step data was checked and warning messages were found.              
+  Please review output or errors file (                                  
+ D:\MyDocs\Documents\Senior\Fall\Senior Design                           
+ 1\AgileRoboticControls\SolidWorks                                       
+ Models\ANSYS\_ProjectScratch\ScrDB29\file.err ) for these warning       
+ messages.                                                               
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+
+
+ *** NOTE ***                            CP =       2.122   TIME= 11:54:36
+ It is highly recommended to use the auto contact setting option by      
+ issuing CNCHECK,AUTO command for this problem in order to achieve       
+ better convergence.                                                     
+
+ *** NOTE ***                            CP =       2.122   TIME= 11:54:36
+ Force-distributed-surface identified by real constant set 2 and         
+ contact element type 2 has been set up.  The pilot node 8034 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+
+ *** NOTE ***                            CP =       2.122   TIME= 11:54:36
+ Force-distributed-surface identified by real constant set 4 and         
+ contact element type 4 has been set up.  The pilot node 8035 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+
+ *** NOTE ***                            CP =       2.122   TIME= 11:54:36
+ Force-distributed-surface identified by real constant set 6 and         
+ contact element type 6 has been set up.  The pilot node 8036 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+
+ *** NOTE ***                            CP =       2.122   TIME= 11:54:36
+ Force-distributed-surface identified by real constant set 8 and         
+ contact element type 8 has been set up.  The pilot node 8037 is used    
+ to apply the force.  Internal MPC will be built.                        
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ Please verify constraints (including rotational degrees of freedom)
+  on the pilot node by yourself.
+  
+  
+
+
+  BLOCK LANCZOS CALCULATION OF UP TO    1 EIGENVECTORS.
+  NUMBER OF EQUATIONS              =        23607
+  MAXIMUM WAVEFRONT                =          840
+  MAXIMUM MODES STORED             =            1
+  MINIMUM EIGENVALUE               =  0.00000E+00
+  MAXIMUM EIGENVALUE               =  0.10000E+31
+
+
+  LANCZOS CYCLE NUMBER =   1
+
+     new shift:  1.4131D-05     modes still needed:        1
+
+  EIGENVALUES AT CURRENT LANCZOS CYCLE
+
+
+     number of steps      :      1
+     eigenvalues found    :      0
+     total no. eigenvalues:      0
+
+  LANCZOS CYCLE NUMBER =   2
+
+     new shift:  1.4273D-03     modes still needed:        1
+
+  EIGENVALUES AT CURRENT LANCZOS CYCLE
+     1  0.38345352E+02
+
+     number of steps      :     11
+     eigenvalues found    :      1
+     total no. eigenvalues:      1
+
+  LANCZOS CYCLE NUMBER =   3
+
+     new shift:  4.7871D+01     modes still needed:        0
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
+ ANSYS Academic Teaching Advanced                  
+ 00313154          VERSION=WINDOWS x64   11:54:39  FEB 23, 2015 CP=      6.318
+
+ Models--Linear Buckling (D5)                                                  
+
+
+  ***** EIGENVALUES (LOAD MULTIPLIERS FOR BUCKLING) *****
+            *** FROM BLOCK LANCZOS ITERATION ***
+
+      SHAPE NUMBER   LOAD MULTIPLIER
+
+            1            38.345352    
+
+
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+       61.875 MB WRITTEN ON ELEMENT MATRIX FILE: file.emat
+       13.875 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
+       23.438 MB WRITTEN ON ASSEMBLED MATRIX FILE: file.full
+        1.188 MB WRITTEN ON MODAL MATRIX FILE: file.mode
+        2.312 MB WRITTEN ON RESULTS FILE: file.rst
+ *************** Write FE CONNECTORS *********
+
+ WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =         6.474
+
+
+
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9108333    
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
+ ANSYS Academic Teaching Advanced                  
+ 00313154          VERSION=WINDOWS x64   11:54:39  FEB 23, 2015 CP=      6.474
+
+ Models--Linear Buckling (D5)                                                  
+
+
+          ***** ANSYS RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            CP =       6.474   TIME= 11:54:39
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml                                                                                                                                                                                                                                                            
+
+ EXIT THE ANSYS POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =         6.505
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9108333    
+
+ PARAMETER _PREPTIME =     0.000000000    
+
+ PARAMETER _SOLVTIME =     12.00000000    
+
+ PARAMETER _POSTTIME =     0.000000000    
+
+ PARAMETER _TOTALTIM =     12.00000000    
+
+ EXIT ANSYS WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          3
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- A N S Y S   S T A T I S T I C S ------------------------+
+
+Release: 15.0.7     Build: UP20140420   Platform: WINDOWS x64 
+Date Run: 02/23/2015   Time: 11:54
+Windows Process ID:         9092
+
+Processor Model:        Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz
+
+Compiler: Intel(R) FORTRAN Compiler Version 12.1.0  (Build: 20120928)
+          Microsoft(R) Visual C/C++ Compiler Version 16.0  (Build: 40219)
+          Intel(R) Math Kernel Library Version 11.0.5 Product Build 20130612
+
+Total number of cores available    :    4
+Number of physical cores available :    2
+Number of cores requested          :    2 (Shared Memory Parallel)
+
+GPU Acceleration: Not Requested
+
+Job Name: file
+Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrDB29
+
+Total CPU time for main thread                    :        4.0 seconds
+Total CPU time summed for all threads             :        6.5 seconds
+
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.2 seconds
+Elapsed time spent computing solution             :        2.9 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+
+Equation solver computational rate                :     6813.4 Mflops
+
+Maximum total memory used                         :      406.0 MB
+Maximum total memory allocated                    :     1088.0 MB
+Maximum total memory available                    :          4 GB
+
++------------------ E N D   A N S Y S   S T A T I S T I C S -------------------+
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                            ANSYS RUN COMPLETED                            |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |            Release 15.0.7         UP20140420         WINDOWS x64          |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)   512 MB    Scratch Memory Requested       512 MB |
+ | Maximum Database Used       6 MB    Maximum Scratch Memory Used    400 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =          6.505       Time  =  11:54:39        |
+ |        Elapsed Time (sec) =          8.000       Date  =  02/23/2015      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*

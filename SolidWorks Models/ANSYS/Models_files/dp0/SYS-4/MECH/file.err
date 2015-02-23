@@ -1,0 +1,15 @@
+/COM,ANSYS RELEASE 15.0.7  UP20140420       11:54:32    02/23/2015
+
+ *** WARNING ***                         CP =       1.170   TIME= 11:54:36
+ Material number 2 (used by element 4140 ) should normally have at least 
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
+
+ *** WARNING ***                         CP =       2.059   TIME= 11:54:36
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         CP =       2.059   TIME= 11:54:36
+ Material number 2 (used by element 4140 ) should normally have at least 
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          

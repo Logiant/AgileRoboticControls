@@ -84,14 +84,14 @@
   STOP FILE MODE               = NOREAD
 
  00313154          VERSION=WINDOWS x64     RELEASE= 15.0.7  Maintenance Release UP20140420
- CURRENT JOBNAME=file  13:46:22  FEB 19, 2015 CP=      1.186
+ CURRENT JOBNAME=file  11:54:27  FEB 23, 2015 CP=      1.045
 
 
  PARAMETER _DS_PROGRESS =     999.0000000    
 
  /INPUT FILE= ds.dat  LINE=       0
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.7727778    
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9075000    
 
  TITLE= 
  Models--Static Structural (B5)                                                
@@ -100,7 +100,7 @@
  SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\Scr12FF\
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrBA01\
 
  SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
@@ -138,7 +138,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:46:22  FEB 19, 2015 CP=      1.248
+ 00313154          VERSION=WINDOWS x64   11:54:27  FEB 23, 2015 CP=      1.092
 
  Models--Static Structural (B5)                                                
 
@@ -162,7 +162,7 @@
  *********** Construct Remote Force Using RBE3/CERIG Contact ***********
 
 
- ***** ROUTINE COMPLETED *****  CP =         1.357
+ ***** ROUTINE COMPLETED *****  CP =         1.154
 
 
  --- Number of total nodes = 8037
@@ -172,7 +172,7 @@
  --- Number of solid elements = 4135
  --- Number of total elements = 4245
 
- *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.7727778    
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9075000    
  ****************************************************************************
  *************************    SOLUTION       ********************************
  ****************************************************************************
@@ -199,7 +199,11 @@
  NLDIAG: Nonlinear diagnostics CONT option is set to ON. 
          Writing frequency : each ITERATION.
 
- DO NOT SAVE ANY RESTART FILES AT ALL
+ DEFINE RESTART CONTROL FOR LOADSTEP LAST
+ AT FREQUENCY OF LAST AND NUMBER FOR OVERWRITE IS    0
+
+ WRITE MULTIFRAME RESTART FILES EVEN
+ WHEN IT IS A LINEAR STATIC ANALYSIS
  ****************************************************
  ******************* SOLVE FOR LS 1 ****************
 
@@ -307,16 +311,16 @@
 
  *****  ANSYS SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       1.388   TIME= 13:46:22
+ *** WARNING ***                         CP =       1.170   TIME= 11:54:27
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** NOTE ***                            CP =       1.451   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.201   TIME= 11:54:27
  The model data was checked and warning messages were found.             
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\Scr12FF\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrBA01\file.err ) for these warning       
  messages.                                                               
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -330,7 +334,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:46:22  FEB 19, 2015 CP=      1.451
+ 00313154          VERSION=WINDOWS x64   11:54:27  FEB 23, 2015 CP=      1.201
 
  Models--Static Structural (B5)                                                
 
@@ -345,24 +349,24 @@
       TOLERANCE. . . . . . . . . . . . . . . . . . 1.00000E-08
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
- *** WARNING ***                         CP =       1.451   TIME= 13:46:22
+ *** WARNING ***                         CP =       1.232   TIME= 11:54:27
  Material number 2 (used by element 4140 ) should normally have at least 
  one MP or one TB type command associated with it.  Output of energy by  
  material may not be available.                                          
 
- *** NOTE ***                            CP =       1.451   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.232   TIME= 11:54:27
  The step data was checked and warning messages were found.              
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\Scr12FF\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrBA01\file.err ) for these warning       
  messages.                                                               
 
- *** NOTE ***                            CP =       1.451   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.232   TIME= 11:54:27
  The conditions for direct assembly have been met.  No .emat or .erot    
  files will be produced.                                                 
 
- *** NOTE ***                            CP =       1.451   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.232   TIME= 11:54:27
  Internal nodes from 8038 to 8041 are created.                           
  4 internal nodes are used for handling degrees of freedom on pilot      
  nodes of rigid target surfaces.                                         
@@ -386,12 +390,12 @@
 
  SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
 
- *** NOTE ***                            CP =       1.576   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.326   TIME= 11:54:27
  It is highly recommended to use the auto contact setting option by      
  issuing CNCHECK,AUTO command for this problem in order to achieve       
  better convergence.                                                     
 
- *** NOTE ***                            CP =       1.576   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.326   TIME= 11:54:27
  Force-distributed-surface identified by real constant set 2 and         
  contact element type 2 has been set up.  The pilot node 8034 is used    
  to apply the force.  Internal MPC will be built.                        
@@ -399,7 +403,7 @@
  Please verify constraints (including rotational degrees of freedom)
   on the pilot node by yourself.
 
- *** NOTE ***                            CP =       1.576   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.326   TIME= 11:54:27
  Force-distributed-surface identified by real constant set 4 and         
  contact element type 4 has been set up.  The pilot node 8035 is used    
  to apply the force.  Internal MPC will be built.                        
@@ -407,7 +411,7 @@
  Please verify constraints (including rotational degrees of freedom)
   on the pilot node by yourself.
 
- *** NOTE ***                            CP =       1.576   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.326   TIME= 11:54:27
  Force-distributed-surface identified by real constant set 6 and         
  contact element type 6 has been set up.  The pilot node 8036 is used    
  to apply the force.  Internal MPC will be built.                        
@@ -415,7 +419,7 @@
  Please verify constraints (including rotational degrees of freedom)
   on the pilot node by yourself.
 
- *** NOTE ***                            CP =       1.576   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.326   TIME= 11:54:27
  Force-distributed-surface identified by real constant set 8 and         
  contact element type 8 has been set up.  The pilot node 8037 is used    
  to apply the force.  Internal MPC will be built.                        
@@ -426,7 +430,7 @@
   
 
 
- *** NOTE ***                            CP =       1.763   TIME= 13:46:22
+ *** NOTE ***                            CP =       1.498   TIME= 11:54:27
  The PCG solver has automatically set the level of difficulty for this   
  model to 2.                                                             
   
@@ -474,7 +478,7 @@
    *** ELEMENT MATRIX FORMULATION TIMES
   TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-     1      4135  SOLID187      1.123   0.000272
+     1      4135  SOLID187      0.842   0.000204
      2        32  CONTA174      0.000   0.000000
      3         1  TARGE170      0.000   0.000000
      4        32  CONTA174      0.000   0.000000
@@ -483,18 +487,21 @@
      7         1  TARGE170      0.000   0.000000
      8        26  CONTA174      0.000   0.000000
      9         1  TARGE170      0.000   0.000000
- Time at end of element matrix formulation CP = 2.49601603.              
- Iteration=    10 Ratio=  0.121201     Limit=  1.000000E-08 Wall=     0.0
- Iteration=    45 Ratio=  9.426346E-04 Limit=  1.000000E-08 Wall=     0.2
- Iteration=   115 Ratio=  2.474322E-06 Limit=  1.000000E-08 Wall=     0.5
+ Time at end of element matrix formulation CP = 2.10601354.              
 
- PRECONDITIONED SOLVER CP TIME      =     1.778
- PRECONDITIONED SOLVER ELAPSED TIME =     0.954
+ ALL CURRENT ANSYS DATA WRITTEN TO FILE NAME= file.rdb
+  FOR POSSIBLE RESUME FROM THIS POINT
+ Iteration=    10 Ratio=  0.121201     Limit=  1.000000E-08 Wall=     0.0
+ Iteration=    45 Ratio=  9.432592E-04 Limit=  1.000000E-08 Wall=     0.1
+ Iteration=   115 Ratio=  2.469874E-06 Limit=  1.000000E-08 Wall=     0.3
+
+ PRECONDITIONED SOLVER CP TIME      =     1.108
+ PRECONDITIONED SOLVER ELAPSED TIME =     0.564
 
    *** ELEMENT RESULT CALCULATION TIMES
   TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-     1      4135  SOLID187      0.811   0.000196
+     1      4135  SOLID187      0.562   0.000136
      2        32  CONTA174      0.000   0.000000
      3         1  TARGE170      0.000   0.000000
      4        32  CONTA174      0.000   0.000000
@@ -507,7 +514,7 @@
    *** NODAL LOAD CALCULATION TIMES
   TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-     1      4135  SOLID187      0.062   0.000015
+     1      4135  SOLID187      0.031   0.000008
      2        32  CONTA174      0.000   0.000000
      3         1  TARGE170      0.000   0.000000
      4        32  CONTA174      0.000   0.000000
@@ -522,7 +529,7 @@
 
  *** ANSYS BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-        2.125 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
+       13.875 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
         4.062 MB WRITTEN ON RESULTS FILE: file.rst
  *************** Write FE CONNECTORS *********
 
@@ -532,28 +539,28 @@
 
  PARAMETER _DS_PROGRESS  DELETED.
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.7733333    
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9080556    
 
  *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  181.000000    
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =         4.914
+ ***** ROUTINE COMPLETED *****  CP =         3.744
 
 
 1
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:46:24  FEB 19, 2015 CP=      4.945
+ 00313154          VERSION=WINDOWS x64   11:54:29  FEB 23, 2015 CP=      3.744
 
  Models--Static Structural (B5)                                                
 
 
           ***** ANSYS RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =       4.945   TIME= 13:46:24
+ *** NOTE ***                            CP =       3.744   TIME= 11:54:29
  Reading results into the database (SET command) will update the current 
  displacement and force boundary conditions in the database with the     
  values from the results file for that load set.  Note that any          
@@ -571,13 +578,13 @@
  EXIT THE ANSYS POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =         4.945
+ ***** ROUTINE COMPLETED *****  CP =         3.744
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.7733333    
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.9080556    
 
  PARAMETER _PREPTIME =     0.000000000    
 
@@ -596,8 +603,8 @@
 +--------------------- A N S Y S   S T A T I S T I C S ------------------------+
 
 Release: 15.0.7     Build: UP20140420   Platform: WINDOWS x64 
-Date Run: 02/19/2015   Time: 13:46
-Windows Process ID:        11712
+Date Run: 02/23/2015   Time: 11:54
+Windows Process ID:         4776
 
 Processor Model:        Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz
 
@@ -612,18 +619,18 @@ Number of cores requested          :    2 (Shared Memory Parallel)
 GPU Acceleration: Not Requested
 
 Job Name: file
-Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\Scr12FF
+Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrBA01
 
-Total CPU time for main thread                    :        3.1 seconds
-Total CPU time summed for all threads             :        4.9 seconds
+Total CPU time for main thread                    :        2.4 seconds
+Total CPU time summed for all threads             :        3.8 seconds
 
-Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
 Elapsed time spent solution - preprocessing       :        0.1 seconds
-Elapsed time spent computing solution             :        1.7 seconds
+Elapsed time spent computing solution             :        1.2 seconds
 Elapsed time spent solution - postprocessing      :        0.0 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
 
-Equation solver computational rate                :     2972.2 Mflops
+Equation solver computational rate                :     5240.6 Mflops
 
 Maximum total memory used                         :       39.0 MB
 Maximum total memory allocated                    :     1088.0 MB
@@ -647,7 +654,7 @@ Maximum total memory available                    :          4 GB
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =          4.945       Time  =  13:46:24        |
- |        Elapsed Time (sec) =          8.000       Date  =  02/19/2015      |
+ |        CP Time      (sec) =          3.760       Time  =  11:54:29        |
+ |        Elapsed Time (sec) =          6.000       Date  =  02/23/2015      |
  |                                                                           |
  *---------------------------------------------------------------------------*

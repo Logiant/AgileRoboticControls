@@ -1,40 +1,46 @@
-/COM,ANSYS RELEASE 15.0.7  UP20140420       14:51:58    02/19/2015
+/COM,ANSYS RELEASE 15.0.7  UP20140420       12:46:16    02/23/2015
 
- *** WARNING ***                         CP =       3.791   TIME= 14:52:05
+ *** WARNING ***                         CP =       2.153   TIME= 12:46:22
  Using 1 iteration per substep may result in unconverged solutions for   
  nonlinear analysis and the program may not indicate divergence in this  
  case.  Check your results.                                              
 
- *** WARNING ***                         CP =       3.838   TIME= 14:52:05
+ *** WARNING ***                         CP =       2.215   TIME= 12:46:22
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** WARNING ***                         CP =       4.009   TIME= 14:52:05
+ *** WARNING ***                         CP =       2.340   TIME= 12:46:23
  SOLID186 wedges are recommended only in regions of relatively low       
  stress gradients.                                                       
 
- *** WARNING ***                         CP =       4.274   TIME= 14:52:05
- Material number 8 (used by element 36274 ) should normally have at      
+ *** WARNING ***                         CP =       2.527   TIME= 12:46:23
+ Material number 12 (used by element 31613 ) should normally have at     
  least one MP or one TB type command associated with it.  Output of      
  energy by material may not be available.                                
 
- *** WARNING ***                         CP =       5.928   TIME= 14:52:09
+ *** WARNING ***                         CP =       3.853   TIME= 12:46:23
  ANSYS has found the contact pairs have similar mesh patterns.  ANSYS    
  will keep the current pair and deactivate its companion pair.           
 
- *** WARNING ***                         CP =       5.928   TIME= 14:52:09
+ *** WARNING ***                         CP =       3.853   TIME= 12:46:23
  The geometric gap/penetration may be too large.  Increase pinball       
  radius if it is a true geometric gap/penetration.  Decrease pinball if  
  it is a false one.                                                      
 
- *** WARNING ***                         CP =       5.928   TIME= 14:52:09
+ *** WARNING ***                         CP =       3.853   TIME= 12:46:23
  The geometric gap/penetration may be too large.  Increase pinball       
  radius if it is a true geometric gap/penetration.  Decrease pinball if  
  it is a false one.                                                      
 
- *** WARNING ***                         CP =      18.034   TIME= 14:52:31
+ *** WARNING ***                         CP =      10.951   TIME= 12:46:27
  The geometrical gap may be too large.  Increase pinball if it is a true 
  geometrical gap.  Decrease pinball if it is a false one.                
 
- *** WARNING ***                         CP =      18.065   TIME= 14:52:34
- Coefficient ratio exceeds 1.0e8 - Check results.                        
+ *** WARNING ***                         CP =     242.597   TIME= 12:59:27
+ During this session the elapsed time exceeds the CPU time by 806%.      
+ Often this indicates either a lack of physical memory (RAM) required    
+ to efficiently handle this simulation or it indicates a particularly    
+ slow hard drive configuration.  This simulation can be expected to run  
+ faster on identical hardware if additional RAM or a faster hard drive   
+ configuration is made available.  For more details, please see the      
+ ANSYS Performance Guide which is part of the ANSYS Help system.         

@@ -1,0 +1,55 @@
+
+  Performance statistics for Boeing sparse solver: icalls =      1
+
+ ===========================
+ = multifrontal statistics =
+ ===========================
+
+     number of equations                     =          415620
+     no. of nonzeroes in lower triangle of a =        23162925
+     number of compressed nodes              =           94840
+     no. of compressed nonzeroes in l. tri.  =         1414436
+     amount of workspace currently in use    =         4539470
+     max. amt. of workspace used             =       106586272
+     no. of nonzeroes in the factor l        =       174044016.
+     number of super nodes                   =            6507
+     number of compressed subscripts         =         1588014
+     size of stack storage                   =         4326900
+     maximum order of a front matrix         =            2175
+     maximum size of a front matrix          =         2366400
+     maximum size of a front trapezoid       =          137120
+     no. of floating point ops for factor    =      1.2707D+11
+     no. of floating point ops for solve     =      5.7932D+08
+     actual no. of nonzeroes in the factor l =       174044016.
+     actual number of compressed subscripts  =         1588014
+     actual size of stack storage used       =         4529715
+     near zero pivot monitoring activated
+     number of pivots adjusted               =              0.
+     negative pivot monitoring activated
+     number of negative pivots encountered   =              0.
+     factorization panel size                =              64
+     factorization update panel size         =              32
+     solution block size                     =               2
+     number of cores used                    =               2
+     time (cpu & wall) for structure input   =        2.184014        7.559902
+     time (cpu & wall) for ordering          =        2.262015        6.867263
+     time (cpu & wall) for symbolic factor   =        0.093600        0.093430
+     time (cpu & wall) for value input       =        4.414829      112.850696
+     time (cpu & wall) for numeric factor    =       72.228462      126.419254
+     computational rate (mflops) for factor  =     1759.307445     1005.163907
+     condition number estimate               =      0.0000D+00
+     time (cpu & wall) for numeric solve     =        2.589615       25.364720
+     computational rate (mflops) for solve   =      223.709035       22.839607
+     effective I/O rate (MB/sec) for solve   =      852.331412       87.018903
+
+     i/o stats:    unit           file length              amount transferred
+                                words     mbytes            words     mbytes
+                  ----          -----     ------            -----     ------
+                    20      49570343.      378. MB     102385179.      781. MB
+                    25       3176028.       24. MB      11116098.       85. MB
+                     9     174044016.     1328. MB     661109598.     5044. MB
+                    11      69488775.      530. MB     138977550.     1060. MB
+
+               -------     ----------     --------      ----------    --------
+               Totals:     296279162.     2260. MB     913588425.     6970. MB
+

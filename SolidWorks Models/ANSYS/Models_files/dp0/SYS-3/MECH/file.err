@@ -1,15 +1,15 @@
-/COM,ANSYS RELEASE 15.0.7  UP20140420       13:15:29    02/19/2015
+/COM,ANSYS RELEASE 15.0.7  UP20140420       11:27:13    02/23/2015
 
- *** WARNING ***                         CP =       1.404   TIME= 13:15:34
- Material number 2 (used by element 4282 ) should normally have at least 
+ *** WARNING ***                         CP =       1.154   TIME= 11:27:16
+ Material number 2 (used by element 7094 ) should normally have at least 
  one MP or one TB type command associated with it.  Output of energy by  
  material may not be available.                                          
 
- *** WARNING ***                         CP =       2.402   TIME= 13:15:35
+ *** WARNING ***                         CP =       2.590   TIME= 11:27:17
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** WARNING ***                         CP =       2.434   TIME= 13:15:35
- Material number 2 (used by element 4282 ) should normally have at least 
+ *** WARNING ***                         CP =       2.652   TIME= 11:27:17
+ Material number 2 (used by element 7094 ) should normally have at least 
  one MP or one TB type command associated with it.  Output of energy by  
  material may not be available.                                          

@@ -1,0 +1,28 @@
+/COM,ANSYS RELEASE 15.0.7  UP20140420       13:33:20    02/23/2015
+
+ *** WARNING ***                         CP =       2.012   TIME= 13:33:26
+ Using 1 iteration per substep may result in unconverged solutions for   
+ nonlinear analysis and the program may not indicate divergence in this  
+ case.  Check your results.                                              
+
+ *** WARNING ***                         CP =       2.044   TIME= 13:33:26
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         CP =       2.137   TIME= 13:33:26
+ SOLID186 wedges are recommended only in regions of relatively low       
+ stress gradients.                                                       
+
+ *** WARNING ***                         CP =       2.293   TIME= 13:33:27
+ Material number 12 (used by element 24749 ) should normally have at     
+ least one MP or one TB type command associated with it.  Output of      
+ energy by material may not be available.                                
+
+ *** WARNING ***                         CP =     108.343   TIME= 13:39:39
+ During this session the elapsed time exceeds the CPU time by 1040%.     
+ Often this indicates either a lack of physical memory (RAM) required    
+ to efficiently handle this simulation or it indicates a particularly    
+ slow hard drive configuration.  This simulation can be expected to run  
+ faster on identical hardware if additional RAM or a faster hard drive   
+ configuration is made available.  For more details, please see the      
+ ANSYS Performance Guide which is part of the ANSYS Help system.         

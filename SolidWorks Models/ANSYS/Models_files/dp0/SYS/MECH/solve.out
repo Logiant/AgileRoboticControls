@@ -84,14 +84,14 @@
   STOP FILE MODE               = NOREAD
 
  00313154          VERSION=WINDOWS x64     RELEASE= 15.0.7  Maintenance Release UP20140420
- CURRENT JOBNAME=file  13:15:17  FEB 19, 2015 CP=      1.186
+ CURRENT JOBNAME=file  11:27:06  FEB 23, 2015 CP=      0.905
 
 
  PARAMETER _DS_PROGRESS =     999.0000000    
 
  /INPUT FILE= ds.dat  LINE=       0
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2550000    
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4516667    
 
  TITLE= 
  Models--Static Structural (A5)                                                
@@ -100,7 +100,7 @@
  SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrA1E9\
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrB15D\
 
  SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
@@ -138,7 +138,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:18  FEB 19, 2015 CP=      1.248
+ 00313154          VERSION=WINDOWS x64   11:27:06  FEB 23, 2015 CP=      0.952
 
  Models--Static Structural (A5)                                                
 
@@ -159,17 +159,17 @@
  *********** Construct Remote Force Using RBE3/CERIG Contact ***********
 
 
- ***** ROUTINE COMPLETED *****  CP =         1.357
+ ***** ROUTINE COMPLETED *****  CP =         1.061
 
 
- --- Number of total nodes = 8208
- --- Number of contact elements = 118
+ --- Number of total nodes = 12949
+ --- Number of contact elements = 132
  --- Number of spring elements = 0
  --- Number of bearing elements = 0
- --- Number of solid elements = 4279
- --- Number of total elements = 4399
+ --- Number of solid elements = 7091
+ --- Number of total elements = 7225
 
- *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2550000    
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4519444    
  ****************************************************************************
  *************************    SOLUTION       ********************************
  ****************************************************************************
@@ -207,12 +207,12 @@
  SELECT       FOR ITEM=TYPE COMPONENT=    
   IN RANGE         2 TO          2 STEP          1
 
-         38  ELEMENTS (OF       4399  DEFINED) SELECTED BY  ESEL  COMMAND.
+         52  ELEMENTS (OF       7225  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
 
-      101 NODES (OF     8208  DEFINED) SELECTED FROM
-       38 SELECTED ELEMENTS BY NSLE COMMAND.
+      129 NODES (OF    12949  DEFINED) SELECTED FROM
+       52 SELECTED ELEMENTS BY NSLE COMMAND.
 
  SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  1   KVAL = 1
       SET ACCORDING TO TABLE PARAMETER = _LOADVARI33X                    
@@ -224,47 +224,47 @@
       SET ACCORDING TO TABLE PARAMETER = _LOADVARI33Z                    
 
  ALL SELECT   FOR ITEM=NODE COMPONENT=    
-  IN RANGE         1 TO       8208 STEP          1
+  IN RANGE         1 TO      12949 STEP          1
 
-       8208  NODES (OF       8208  DEFINED) SELECTED BY NSEL  COMMAND.
+      12949  NODES (OF      12949  DEFINED) SELECTED BY NSEL  COMMAND.
 
  ALL SELECT   FOR ITEM=ELEM COMPONENT=    
-  IN RANGE         1 TO       4401 STEP          1
+  IN RANGE         1 TO       7227 STEP          1
 
-       4399  ELEMENTS (OF       4399  DEFINED) SELECTED BY  ESEL  COMMAND.
+       7225  ELEMENTS (OF       7225  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SELECT       FOR ITEM=NODE COMPONENT=    
-  IN RANGE      8207 TO       8207 STEP          1
+  IN RANGE     12948 TO      12948 STEP          1
 
-          1  NODES (OF       8208  DEFINED) SELECTED BY  NSEL  COMMAND.
+          1  NODES (OF      12949  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- SPECIFIED NODAL LOAD FX   FOR SELECTED NODES         1 TO     8208 BY        1
+ SPECIFIED NODAL LOAD FX   FOR SELECTED NODES         1 TO    12949 BY        1
   SET ACCORDING TO TABLE PARAMETER = _LOADVARI27X
 
- SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     8208 BY        1
+ SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO    12949 BY        1
   SET ACCORDING TO TABLE PARAMETER = _LOADVARI27Y
 
- SPECIFIED NODAL LOAD FZ   FOR SELECTED NODES         1 TO     8208 BY        1
+ SPECIFIED NODAL LOAD FZ   FOR SELECTED NODES         1 TO    12949 BY        1
   SET ACCORDING TO TABLE PARAMETER = _LOADVARI27Z
 
  SELECT       FOR ITEM=NODE COMPONENT=    
-  IN RANGE      8208 TO       8208 STEP          1
+  IN RANGE     12949 TO      12949 STEP          1
 
-          1  NODES (OF       8208  DEFINED) SELECTED BY  NSEL  COMMAND.
+          1  NODES (OF      12949  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- SPECIFIED NODAL LOAD FX   FOR SELECTED NODES         1 TO     8208 BY        1
+ SPECIFIED NODAL LOAD FX   FOR SELECTED NODES         1 TO    12949 BY        1
   SET ACCORDING TO TABLE PARAMETER = _LOADVARI30X
 
- SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     8208 BY        1
+ SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO    12949 BY        1
   SET ACCORDING TO TABLE PARAMETER = _LOADVARI30Y
 
- SPECIFIED NODAL LOAD FZ   FOR SELECTED NODES         1 TO     8208 BY        1
+ SPECIFIED NODAL LOAD FZ   FOR SELECTED NODES         1 TO    12949 BY        1
   SET ACCORDING TO TABLE PARAMETER = _LOADVARI30Z
 
  ALL SELECT   FOR ITEM=NODE COMPONENT=    
-  IN RANGE         1 TO       8208 STEP          1
+  IN RANGE         1 TO      12949 STEP          1
 
-       8208  NODES (OF       8208  DEFINED) SELECTED BY NSEL  COMMAND.
+      12949  NODES (OF      12949  DEFINED) SELECTED BY NSEL  COMMAND.
 
  PRINTOUT RESUMED BY /GOP
 
@@ -309,16 +309,16 @@
 
  *****  ANSYS SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       1.388   TIME= 13:15:18
+ *** WARNING ***                         CP =       1.061   TIME= 11:27:07
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** NOTE ***                            CP =       1.451   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.123   TIME= 11:27:07
  The model data was checked and warning messages were found.             
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\ScrA1E9\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrB15D\file.err ) for these warning       
  messages.                                                               
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -332,7 +332,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:18  FEB 19, 2015 CP=      1.451
+ 00313154          VERSION=WINDOWS x64   11:27:07  FEB 23, 2015 CP=      1.123
 
  Models--Static Structural (A5)                                                
 
@@ -347,25 +347,25 @@
       TOLERANCE. . . . . . . . . . . . . . . . . . 1.00000E-08
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
- *** WARNING ***                         CP =       1.451   TIME= 13:15:18
- Material number 2 (used by element 4282 ) should normally have at least 
+ *** WARNING ***                         CP =       1.154   TIME= 11:27:07
+ Material number 2 (used by element 7094 ) should normally have at least 
  one MP or one TB type command associated with it.  Output of energy by  
  material may not be available.                                          
 
- *** NOTE ***                            CP =       1.482   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.186   TIME= 11:27:07
  The step data was checked and warning messages were found.              
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\ScrA1E9\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrB15D\file.err ) for these warning       
  messages.                                                               
 
- *** NOTE ***                            CP =       1.482   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.186   TIME= 11:27:07
  The conditions for direct assembly have been met.  No .emat or .erot    
  files will be produced.                                                 
 
- *** NOTE ***                            CP =       1.482   TIME= 13:15:18
- Internal nodes from 8209 to 8210 are created.                           
+ *** NOTE ***                            CP =       1.186   TIME= 11:27:07
+ Internal nodes from 12950 to 12951 are created.                         
  2 internal nodes are used for handling degrees of freedom on pilot      
  nodes of rigid target surfaces.                                         
 
@@ -388,22 +388,22 @@
 
  SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
 
- *** NOTE ***                            CP =       1.638   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.342   TIME= 11:27:07
  It is highly recommended to use the auto contact setting option by      
  issuing CNCHECK,AUTO command for this problem in order to achieve       
  better convergence.                                                     
 
- *** NOTE ***                            CP =       1.638   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.342   TIME= 11:27:07
  Force-distributed-surface identified by real constant set 3 and         
- contact element type 3 has been set up.  The pilot node 8207 is used    
+ contact element type 3 has been set up.  The pilot node 12948 is used   
  to apply the force.  Internal MPC will be built.                        
  The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
  Please verify constraints (including rotational degrees of freedom)
   on the pilot node by yourself.
 
- *** NOTE ***                            CP =       1.638   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.342   TIME= 11:27:07
  Force-distributed-surface identified by real constant set 5 and         
- contact element type 5 has been set up.  The pilot node 8208 is used    
+ contact element type 5 has been set up.  The pilot node 12949 is used   
  to apply the force.  Internal MPC will be built.                        
  The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
  Please verify constraints (including rotational degrees of freedom)
@@ -412,7 +412,7 @@
   
 
 
- *** NOTE ***                            CP =       1.810   TIME= 13:15:18
+ *** NOTE ***                            CP =       1.498   TIME= 11:27:07
  The PCG solver has automatically set the level of difficulty for this   
  model to 1.                                                             
   
@@ -424,24 +424,24 @@
 
    TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
                Translational mass               |   Coupled translational/rotational mass
-        0.49788        0.0000        0.0000     |     0.0000      -0.70090E-09   0.72542E-01
-         0.0000       0.49788        0.0000     |    0.70090E-09    0.0000      -0.12389E-02
+        0.49788        0.0000        0.0000     |     0.0000      -0.23813E-09   0.72542E-01
+         0.0000       0.49788        0.0000     |    0.23813E-09    0.0000      -0.12389E-02
          0.0000        0.0000       0.49788     |   -0.72542E-01   0.12389E-02    0.0000    
      ------------------------------------------ | ------------------------------------------
                                                 |         Rotational mass (inertia)
-                                                |    0.13397E-01  -0.24778E-03  -0.19015E-09
-                                                |   -0.24778E-03   0.95214E-04  -0.20702E-09
-                                                |   -0.19015E-09  -0.20702E-09   0.13446E-01
+                                                |    0.13397E-01  -0.24778E-03  -0.16828E-09
+                                                |   -0.24778E-03   0.95214E-04  -0.10366E-09
+                                                |   -0.16828E-09  -0.10366E-09   0.13446E-01
 
    TOTAL MASS = 0.49788    
      The mass principal axes coincide with the global Cartesian axes
 
-   CENTER OF MASS (X,Y,Z)=  -0.24883E-02  -0.14570      -0.14078E-08
+   CENTER OF MASS (X,Y,Z)=  -0.24883E-02  -0.14570      -0.47829E-09
 
    TOTAL INERTIA ABOUT CENTER OF MASS
-        0.28278E-02  -0.67269E-04  -0.18841E-09
-       -0.67269E-04   0.92131E-04  -0.10490E-09
-       -0.18841E-09  -0.10490E-09   0.28738E-02
+        0.28278E-02  -0.67269E-04  -0.16769E-09
+       -0.67269E-04   0.92131E-04  -0.68966E-10
+       -0.16769E-09  -0.68966E-10   0.28738E-02
 
    PRINCIPAL INERTIAS =   0.28295E-02   0.90478E-04   0.28738E-02
    ORIENTATION VECTORS OF THE INERTIA PRINCIPAL AXES IN GLOBAL CARTESIAN
@@ -454,34 +454,34 @@
      1  0.497880    
 
  Range of element maximum matrix coefficients in global coordinates
- Maximum = 4.894769633E+09 at element 3794.                              
- Minimum = 135815787 at element 3528.                                    
+ Maximum = 4.048948458E+09 at element 3728.                              
+ Minimum = 126000056 at element 3561.                                    
 
    *** ELEMENT MATRIX FORMULATION TIMES
   TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-     1      4279  SOLID187      1.123   0.000262
-     2        38  SURF154       0.000   0.000000
-     3        48  CONTA174      0.000   0.000000
+     1      7091  SOLID187      1.248   0.000176
+     2        52  SURF154       0.062   0.001200
+     3        48  CONTA174      0.062   0.001300
      4         1  TARGE170      0.000   0.000000
      5        32  CONTA174      0.000   0.000000
      6         1  TARGE170      0.000   0.000000
- Time at end of element matrix formulation CP = 2.40241551.              
+ Time at end of element matrix formulation CP = 2.23081422.              
 
  ALL CURRENT ANSYS DATA WRITTEN TO FILE NAME= file.rdb
   FOR POSSIBLE RESUME FROM THIS POINT
- Iteration=    10 Ratio=  8.410809E-02 Limit=  1.000000E-08 Wall=     0.0
- Iteration=    40 Ratio=  9.222178E-04 Limit=  1.000000E-08 Wall=     0.1
- Iteration=   100 Ratio=  1.575812E-06 Limit=  1.000000E-08 Wall=     0.4
+ Iteration=    10 Ratio=  7.936483E-02 Limit=  1.000000E-08 Wall=     0.0
+ Iteration=    40 Ratio=  5.302093E-04 Limit=  1.000000E-08 Wall=     0.1
+ Iteration=    85 Ratio=  2.034124E-06 Limit=  1.000000E-08 Wall=     0.3
 
- PRECONDITIONED SOLVER CP TIME      =     1.279
- PRECONDITIONED SOLVER ELAPSED TIME =     0.710
+ PRECONDITIONED SOLVER CP TIME      =     1.186
+ PRECONDITIONED SOLVER ELAPSED TIME =     0.578
 
    *** ELEMENT RESULT CALCULATION TIMES
   TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-     1      4279  SOLID187      1.014   0.000237
-     2        38  SURF154       0.000   0.000000
+     1      7091  SOLID187      1.061   0.000150
+     2        52  SURF154       0.062   0.001200
      3        48  CONTA174      0.000   0.000000
      4         1  TARGE170      0.000   0.000000
      5        32  CONTA174      0.000   0.000000
@@ -490,8 +490,8 @@
    *** NODAL LOAD CALCULATION TIMES
   TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-     1      4279  SOLID187      0.016   0.000004
-     2        38  SURF154       0.000   0.000000
+     1      7091  SOLID187      0.094   0.000013
+     2        52  SURF154       0.000   0.000000
      3        48  CONTA174      0.000   0.000000
      4         1  TARGE170      0.000   0.000000
      5        32  CONTA174      0.000   0.000000
@@ -502,8 +502,8 @@
 
  *** ANSYS BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-       14.375 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
-        4.188 MB WRITTEN ON RESULTS FILE: file.rst
+       23.625 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
+        6.562 MB WRITTEN ON RESULTS FILE: file.rst
  *************** Write FE CONNECTORS *********
 
  WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
@@ -512,28 +512,28 @@
 
  PARAMETER _DS_PROGRESS  DELETED.
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2552778    
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4522222    
 
- *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  143.000000    
+ *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  129.000000    
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =         4.633
+ ***** ROUTINE COMPLETED *****  CP =         4.446
 
 
 1
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:19  FEB 19, 2015 CP=      4.633
+ 00313154          VERSION=WINDOWS x64   11:27:09  FEB 23, 2015 CP=      4.462
 
  Models--Static Structural (A5)                                                
 
 
           ***** ANSYS RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =       4.633   TIME= 13:15:19
+ *** NOTE ***                            CP =       4.462   TIME= 11:27:09
  Reading results into the database (SET command) will update the current 
  displacement and force boundary conditions in the database with the     
  values from the results file for that load set.  Note that any          
@@ -551,21 +551,21 @@
  EXIT THE ANSYS POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =         4.633
+ ***** ROUTINE COMPLETED *****  CP =         4.462
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2552778    
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4525000    
 
- PARAMETER _PREPTIME =     0.000000000    
+ PARAMETER _PREPTIME =     1.000000000    
 
  PARAMETER _SOLVTIME =     1.000000000    
 
- PARAMETER _POSTTIME =     0.000000000    
+ PARAMETER _POSTTIME =     1.000000000    
 
- PARAMETER _TOTALTIM =     1.000000000    
+ PARAMETER _TOTALTIM =     3.000000000    
 
  EXIT ANSYS WITHOUT SAVING DATABASE
 
@@ -576,8 +576,8 @@
 +--------------------- A N S Y S   S T A T I S T I C S ------------------------+
 
 Release: 15.0.7     Build: UP20140420   Platform: WINDOWS x64 
-Date Run: 02/19/2015   Time: 13:15
-Windows Process ID:        10064
+Date Run: 02/23/2015   Time: 11:27
+Windows Process ID:         6644
 
 Processor Model:        Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz
 
@@ -592,20 +592,20 @@ Number of cores requested          :    2 (Shared Memory Parallel)
 GPU Acceleration: Not Requested
 
 Job Name: file
-Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrA1E9
+Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrB15D
 
-Total CPU time for main thread                    :        3.0 seconds
-Total CPU time summed for all threads             :        4.7 seconds
+Total CPU time for main thread                    :        2.7 seconds
+Total CPU time summed for all threads             :        4.5 seconds
 
 Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
 Elapsed time spent solution - preprocessing       :        0.1 seconds
-Elapsed time spent computing solution             :        1.5 seconds
+Elapsed time spent computing solution             :        1.4 seconds
 Elapsed time spent solution - postprocessing      :        0.0 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
 
-Equation solver computational rate                :     3090.2 Mflops
+Equation solver computational rate                :     5674.4 Mflops
 
-Maximum total memory used                         :       39.0 MB
+Maximum total memory used                         :       57.0 MB
 Maximum total memory allocated                    :     1088.0 MB
 Maximum total memory available                    :          4 GB
 
@@ -623,11 +623,11 @@ Maximum total memory available                    :          4 GB
  |---------------------------------------------------------------------------|
  |                                                                           |
  | Database Requested(-db)   512 MB    Scratch Memory Requested       512 MB |
- | Maximum Database Used      11 MB    Maximum Scratch Memory Used     28 MB |
+ | Maximum Database Used      18 MB    Maximum Scratch Memory Used     39 MB |
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =          4.664       Time  =  13:15:19        |
- |        Elapsed Time (sec) =          7.000       Date  =  02/19/2015      |
+ |        CP Time      (sec) =          4.477       Time  =  11:27:09        |
+ |        Elapsed Time (sec) =          7.000       Date  =  02/23/2015      |
  |                                                                           |
  *---------------------------------------------------------------------------*

@@ -84,18 +84,18 @@
   STOP FILE MODE               = NOREAD
 
  00313154          VERSION=WINDOWS x64     RELEASE= 15.0.7  Maintenance Release UP20140420
- CURRENT JOBNAME=file  13:15:34  FEB 19, 2015 CP=      1.186
+ CURRENT JOBNAME=file  11:27:16  FEB 23, 2015 CP=      0.998
 
 
  PARAMETER _DS_PROGRESS =     999.0000000    
 
  /INPUT FILE= ds.dat  LINE=       0
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2594444    
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4544444    
 
  ASSIGN FILE RSTP TO file.rst                                                                                                                                                                                                                                                            
 
- *** NOTE ***                            CP =       1.248   TIME= 13:15:34
+ *** NOTE ***                            CP =       1.045   TIME= 11:27:16
  File= file.rst does not exist and will be created.                      
 
  *****  ANSYS SOLUTION ROUTINE  *****
@@ -114,8 +114,8 @@
  TITLE = Models--Static Structural (A5)                                        
  ANALYSIS TYPE =  STATIC (STEADY-STATE)
  NUMBER OF ELEMENT TYPES =      6
-      4399 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        4401
-      8210 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           8210
+      7225 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        7227
+     12951 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =          12951
       3 COMPONENTS CURRENTLY DEFINED
  MAXIMUM LINEAR PROPERTY NUMBER        =       1
  MAXIMUM REAL CONSTANT SET NUMBER      =       5
@@ -123,7 +123,7 @@
  MAXIMUM CONSTRAINT EQUATION NUMBER    =      12
  NUMBER OF SPECIFIED CONSTRAINTS       =     684
  NUMBER OF NODAL LOADS                 =       6
- NUMBER OF SPECIFIED SURFACE LOADS     =     114
+ NUMBER OF SPECIFIED SURFACE LOADS     =     156
  CURRENT LOAD CASE =      0 OF      0
  LOAD SET   =       1
  SUBSTEP    =       1
@@ -141,7 +141,7 @@
  
  NUMBER OF NODAL CONSTRAINTS DELETED                       =     684
  NUMBER OF NODAL FORCES DELETED                            =       6
- NUMBER OF ELEMENT PRESSURES DELETED                       =     114
+ NUMBER OF ELEMENT PRESSURES DELETED                       =     156
 
  TITLE= 
  Models--Linear Buckling (D5)                                                  
@@ -156,7 +156,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:34  FEB 19, 2015 CP=      1.373
+ 00313154          VERSION=WINDOWS x64   11:27:16  FEB 23, 2015 CP=      1.154
 
  Models--Linear Buckling (D5)                                                  
 
@@ -170,17 +170,17 @@
    LINEAR PERTURBATION . . . . . . . . . . . . . .ON
    OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
 
- *** WARNING ***                         CP =       1.404   TIME= 13:15:34
- Material number 2 (used by element 4282 ) should normally have at least 
+ *** WARNING ***                         CP =       1.154   TIME= 11:27:16
+ Material number 2 (used by element 7094 ) should normally have at least 
  one MP or one TB type command associated with it.  Output of energy by  
  material may not be available.                                          
 
- *** NOTE ***                            CP =       1.404   TIME= 13:15:34
+ *** NOTE ***                            CP =       1.154   TIME= 11:27:16
  The step data was checked and warning messages were found.              
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\ScrE245\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrD6E9\file.err ) for these warning       
  messages.                                                               
 
                       L O A D   S T E P   O P T I O N S
@@ -191,14 +191,14 @@
       SUBSTEP. . . . . . . . . . . . . . . . . . .     1
    STRESS-STIFFENING . . . . . . . . . . . . . . .    ON
 
- *** NOTE ***                            CP =       1.576   TIME= 13:15:34
+ *** NOTE ***                            CP =       1.373   TIME= 11:27:16
  This SOLVE command is only used to generate the matrices needed to      
  perform the linear perturbation analysis.  The linear perturbation      
  analysis corresponds to time = 1 (load step = 1, substep = 1).  No      
  results are being written.                                              
 
 
- *** NOTE ***                            CP =       1.576   TIME= 13:15:34
+ *** NOTE ***                            CP =       1.404   TIME= 11:27:16
  The PCG solver has automatically set the level of difficulty for this   
  model to 1.                                                             
 
@@ -231,16 +231,16 @@
 
  *****  ANSYS SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       2.402   TIME= 13:15:35
+ *** WARNING ***                         CP =       2.590   TIME= 11:27:17
  Element shape checking is currently inactive.  Issue SHPP,ON or         
  SHPP,WARN to reactivate, if desired.                                    
 
- *** NOTE ***                            CP =       2.434   TIME= 13:15:35
+ *** NOTE ***                            CP =       2.590   TIME= 11:27:17
  The model data was checked and warning messages were found.             
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\ScrE245\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrD6E9\file.err ) for these warning       
  messages.                                                               
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -254,7 +254,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:35  FEB 19, 2015 CP=      2.434
+ 00313154          VERSION=WINDOWS x64   11:27:17  FEB 23, 2015 CP=      2.621
 
  Models--Linear Buckling (D5)                                                  
 
@@ -270,17 +270,17 @@
    PRESTRESS EFFECTS INCLUDED IF AVAILABLE . . . .YES
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
- *** WARNING ***                         CP =       2.434   TIME= 13:15:35
- Material number 2 (used by element 4282 ) should normally have at least 
+ *** WARNING ***                         CP =       2.652   TIME= 11:27:17
+ Material number 2 (used by element 7094 ) should normally have at least 
  one MP or one TB type command associated with it.  Output of energy by  
  material may not be available.                                          
 
- *** NOTE ***                            CP =       2.465   TIME= 13:15:35
+ *** NOTE ***                            CP =       2.652   TIME= 11:27:17
  The step data was checked and warning messages were found.              
   Please review output or errors file (                                  
  D:\MyDocs\Documents\Senior\Fall\Senior Design                           
  1\AgileRoboticControls\SolidWorks                                       
- Models\ANSYS\_ProjectScratch\ScrE245\file.err ) for these warning       
+ Models\ANSYS\_ProjectScratch\ScrD6E9\file.err ) for these warning       
  messages.                                                               
 
                       L O A D   S T E P   O P T I O N S
@@ -293,22 +293,22 @@
       NSOL        ALL               
 
 
- *** NOTE ***                            CP =       2.527   TIME= 13:15:35
+ *** NOTE ***                            CP =       2.746   TIME= 11:27:17
  It is highly recommended to use the auto contact setting option by      
  issuing CNCHECK,AUTO command for this problem in order to achieve       
  better convergence.                                                     
 
- *** NOTE ***                            CP =       2.527   TIME= 13:15:35
+ *** NOTE ***                            CP =       2.746   TIME= 11:27:17
  Force-distributed-surface identified by real constant set 3 and         
- contact element type 3 has been set up.  The pilot node 8207 is used    
+ contact element type 3 has been set up.  The pilot node 12948 is used   
  to apply the force.  Internal MPC will be built.                        
  The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
  Please verify constraints (including rotational degrees of freedom)
   on the pilot node by yourself.
 
- *** NOTE ***                            CP =       2.527   TIME= 13:15:35
+ *** NOTE ***                            CP =       2.746   TIME= 11:27:17
  Force-distributed-surface identified by real constant set 5 and         
- contact element type 5 has been set up.  The pilot node 8208 is used    
+ contact element type 5 has been set up.  The pilot node 12949 is used   
  to apply the force.  Internal MPC will be built.                        
  The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
  Please verify constraints (including rotational degrees of freedom)
@@ -318,16 +318,20 @@
 
 
   BLOCK LANCZOS CALCULATION OF UP TO    1 EIGENVECTORS.
-  NUMBER OF EQUATIONS              =        23946
-  MAXIMUM WAVEFRONT                =          612
+  NUMBER OF EQUATIONS              =        38169
+  MAXIMUM WAVEFRONT                =          522
   MAXIMUM MODES STORED             =            1
   MINIMUM EIGENVALUE               =  0.00000E+00
   MAXIMUM EIGENVALUE               =  0.10000E+31
 
 
+ *** NOTE ***                            CP =       6.302   TIME= 11:27:19
+ The initial memory allocation (-m) has been exceeded.                   
+  Supplemental memory allocations are being used.                        
+
   LANCZOS CYCLE NUMBER =   1
 
-     new shift:  7.1535D-03     modes still needed:        1
+     new shift:  2.8976D-03     modes still needed:        1
 
   EIGENVALUES AT CURRENT LANCZOS CYCLE
 
@@ -338,23 +342,23 @@
 
   LANCZOS CYCLE NUMBER =   2
 
-     new shift:  7.2250D-01     modes still needed:        1
+     new shift:  2.9266D-01     modes still needed:        1
 
   EIGENVALUES AT CURRENT LANCZOS CYCLE
-     1  0.15958726E+05
+     1  0.15910985E+05
 
-     number of steps      :      9
+     number of steps      :      8
      eigenvalues found    :      1
      total no. eigenvalues:      1
 
   LANCZOS CYCLE NUMBER =   3
 
-     new shift:  2.3577D+04     modes still needed:        0
+     new shift:  2.3531D+04     modes still needed:        0
 1
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:38  FEB 19, 2015 CP=      8.736
+ 00313154          VERSION=WINDOWS x64   11:27:22  FEB 23, 2015 CP=     10.577
 
  Models--Linear Buckling (D5)                                                  
 
@@ -364,18 +368,18 @@
 
       SHAPE NUMBER   LOAD MULTIPLIER
 
-            1            15958.726    
+            1            15910.985    
 
 
 
 
  *** ANSYS BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-       64.375 MB WRITTEN ON ELEMENT MATRIX FILE: file.emat
-       14.375 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
-       22.125 MB WRITTEN ON ASSEMBLED MATRIX FILE: file.full
-        1.188 MB WRITTEN ON MODAL MATRIX FILE: file.mode
-        2.375 MB WRITTEN ON RESULTS FILE: file.rst
+      106.562 MB WRITTEN ON ELEMENT MATRIX FILE: file.emat
+       23.625 MB WRITTEN ON ELEMENT SAVED DATA FILE: file.esav
+       36.125 MB WRITTEN ON ASSEMBLED MATRIX FILE: file.full
+        1.875 MB WRITTEN ON MODAL MATRIX FILE: file.mode
+        3.625 MB WRITTEN ON RESULTS FILE: file.rst
  *************** Write FE CONNECTORS *********
 
  WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
@@ -383,23 +387,23 @@
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =         8.954
+ ***** ROUTINE COMPLETED *****  CP =        10.811
 
 
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2605556    
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4561111    
 1
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0.7   Maintenance Release *****
  ANSYS Academic Teaching Advanced                  
- 00313154          VERSION=WINDOWS x64   13:15:38  FEB 19, 2015 CP=      8.986
+ 00313154          VERSION=WINDOWS x64   11:27:22  FEB 23, 2015 CP=     10.811
 
  Models--Linear Buckling (D5)                                                  
 
 
           ***** ANSYS RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =       8.986   TIME= 13:15:38
+ *** NOTE ***                            CP =      10.811   TIME= 11:27:22
  Reading results into the database (SET command) will update the current 
  displacement and force boundary conditions in the database with the     
  values from the results file for that load set.  Note that any          
@@ -417,21 +421,21 @@
  EXIT THE ANSYS POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =         8.986
+ ***** ROUTINE COMPLETED *****  CP =        10.826
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  13.2605556    
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  11.4561111    
 
- PARAMETER _PREPTIME =     0.000000000    
+ PARAMETER _PREPTIME =     1.000000000    
 
- PARAMETER _SOLVTIME =     20.00000000    
+ PARAMETER _SOLVTIME =     15.00000000    
 
  PARAMETER _POSTTIME =     0.000000000    
 
- PARAMETER _TOTALTIM =     20.00000000    
+ PARAMETER _TOTALTIM =     16.00000000    
 
  EXIT ANSYS WITHOUT SAVING DATABASE
 
@@ -442,8 +446,8 @@
 +--------------------- A N S Y S   S T A T I S T I C S ------------------------+
 
 Release: 15.0.7     Build: UP20140420   Platform: WINDOWS x64 
-Date Run: 02/19/2015   Time: 13:15
-Windows Process ID:        15724
+Date Run: 02/23/2015   Time: 11:27
+Windows Process ID:         5240
 
 Processor Model:        Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz
 
@@ -458,22 +462,22 @@ Number of cores requested          :    2 (Shared Memory Parallel)
 GPU Acceleration: Not Requested
 
 Job Name: file
-Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrE245
+Working Directory: D:\MyDocs\Documents\Senior\Fall\Senior Design 1\AgileRoboticControls\SolidWorks Models\ANSYS\_ProjectScratch\ScrD6E9
 
-Total CPU time for main thread                    :        5.5 seconds
-Total CPU time summed for all threads             :        9.0 seconds
+Total CPU time for main thread                    :        6.2 seconds
+Total CPU time summed for all threads             :       10.8 seconds
 
 Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
 Elapsed time spent solution - preprocessing       :        0.2 seconds
-Elapsed time spent computing solution             :        3.9 seconds
+Elapsed time spent computing solution             :        5.0 seconds
 Elapsed time spent solution - postprocessing      :        0.0 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
 
-Equation solver computational rate                :     4622.2 Mflops
-Equation solver effective I/O rate                :     7134.7 MB/sec
+Equation solver computational rate                :    10144.1 Mflops
+Equation solver effective I/O rate                :    11996.4 MB/sec
 
-Maximum total memory used                         :      389.0 MB
-Maximum total memory allocated                    :     1088.0 MB
+Maximum total memory used                         :      626.0 MB
+Maximum total memory allocated                    :     1482.0 MB
 Maximum total memory available                    :          4 GB
 
 +------------------ E N D   A N S Y S   S T A T I S T I C S -------------------+
@@ -490,11 +494,11 @@ Maximum total memory available                    :          4 GB
  |---------------------------------------------------------------------------|
  |                                                                           |
  | Database Requested(-db)   512 MB    Scratch Memory Requested       512 MB |
- | Maximum Database Used       6 MB    Maximum Scratch Memory Used    383 MB |
+ | Maximum Database Used      10 MB    Maximum Scratch Memory Used    616 MB |
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =          8.986       Time  =  13:15:38        |
- |        Elapsed Time (sec) =         10.000       Date  =  02/19/2015      |
+ |        CP Time      (sec) =         10.826       Time  =  11:27:22        |
+ |        Elapsed Time (sec) =         10.000       Date  =  02/23/2015      |
  |                                                                           |
  *---------------------------------------------------------------------------*
