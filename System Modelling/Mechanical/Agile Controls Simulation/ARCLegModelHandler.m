@@ -271,7 +271,4 @@ if ~dragging
         fprintf('Components: %g N x, %g N y \n', Fi2(1), Fi2(2));
     end
 end
-
-
 fprintf('Simulation complete!\n');
-
