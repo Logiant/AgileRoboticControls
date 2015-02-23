@@ -10,6 +10,5 @@ for i = 2:length(positions)-1;
    positions(2,i) = (positions(2,i-1)*2 + positions(2,i+1)*2)/4;
 end
 positions = positions' * 100;
-
 %positions = [positions; positions(1,:)];
 end

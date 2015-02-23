@@ -245,7 +245,31 @@ FI1=eval(FI1);
 FI2=eval(FI2);
 if ~dragging
     fprintf('Calculating step impulse force\n');
+    vhx = bodyVel;vhy = 0; %hip velocity (x, y) from body velocity at 0 deg
+    %find max angular velocities
+    i1 = find(dTheta1==max(dTheta1)); i2 = find(dTheta2==max(dTheta2));
+    %calculating thigh speeds
+    vt1 = [thighCg*cos(dTheta1(i1))+vhx, thighCg*sin(dTheta1(i1))+vhy];
+    vt2 = [thighCg*cos(dTheta1(i2))+vhx, thighCg*sin(dTheta1(i2))+vhy];
+    %calculating knee speeds
+    vk1 = [L1*cos(dTheta1(i1))+vhx, L1*sin(dTheta1(i1))+vhy];
+    vk2 = [L1*cos(dTheta1(i2))+vhx, L1*sin(dTheta1(i2))+vhy];
+    %calculating shank speed
+    vs1 = vk1 + [L2*cos(dTheta2(i1)), L2*sin(dTheta2(i1))];
+    vs2 = vk2 + [L2*cos(dTheta2(i2)), L2*sin(dTheta2(i2))];
     %F = mLeg * vLeg - impulse momentum equations
+    Fi1 = tMass * vt1 + sMass * vs1;
+    mag1 = sqrt(Fi1(1)^2 + Fi1(2)^2);
+    Fi2 = tMass * vt2 + sMass * vs2;
+    mag2 = sqrt(Fi2(1)^2 + Fi2(2)^2);
+    fprintf('\n');
+    if mag1 > mag2
+        fprintf('Impulse force of %g N\n', mag1);
+        fprintf('Components: %g N x, %g N y \n', Fi1(1), Fi1(2));
+    else
+        fprintf('Impulse force of %g \n', mag2);
+        fprintf('Components: %g N x, %g N y \n', Fi2(1), Fi2(2));
+    end
 end
 
 
