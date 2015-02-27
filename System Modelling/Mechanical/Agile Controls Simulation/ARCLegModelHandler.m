@@ -29,7 +29,7 @@ P21 = L1/2; %cm
 P22 = L2/2;    %cm
 
 
-sampleDistance = 10; %cm - interpolation value for under-defined gaits
+sampleDistance = 1; %cm - interpolation value for under-defined gaits
 bodyVel = input('Insert Body Velocity In Meters per Second: '); % meters per second
 stepDist = input('Insert Step Distance In Meters: '); % seconds
 time = stepDist/bodyVel; %time to complete this step at the required speed
