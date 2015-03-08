@@ -1,3 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main File   : DrawArm.m
+% Source Files: None 
+% Dependancies: InverseKinematics, drawRobot
+% Description : Converts CAD geometry into multiple polygons and into 
+%               its vertices. Plots the accelerations throughout the step
+% Input       : Link1 - CAD geometry of upper link
+%               Link2 - CAD geometry of lower link
+%               x - x position of the foot
+%               y - y position of the foot
+%               D1 - Length of the hip joint to the knee joint
+%               D2 - Length of the knee joint to the foot
+%               clyPos - array of cylinder positions
+%               dt - time step on the plot and between samples
+%               cylAcc - array of cylindr accelerations
+% Output      : None
+% Author      : Logan Beaver
+% Date        : 1/20/2015
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function DrawArm(Link1, Link2, x, y, D1, D2, cylPos, dt, cylAcc)
 % Converts CAD geometry into multiple polygons and into its vertices
 % link1Pnts  and link2Pnts already includes the bottom
