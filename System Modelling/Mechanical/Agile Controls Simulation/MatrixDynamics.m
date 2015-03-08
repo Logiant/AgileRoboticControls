@@ -1,7 +1,15 @@
-function [ output_args ] = MatrixDynamics( input_args )
-%DYNAMICSFUNCTION Summary of this function goes here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main File   : MatrixDynamics.m
+% Dependancies: solve, sub, cross, derivative, jacobian
+% Description : Calculates the velocities and accelerations and force and
+% torque equations.
+% Input       : None
+% Output      : Writes force and torque equations to the workspace
+% Author      : Logan Beaver
+% Date        : 02/18/2015
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [] = MatrixDynamics()
 %   Detailed explanation goes here
-
 %       __________________
 %      /  |            |  \
 %     /   |            |   \

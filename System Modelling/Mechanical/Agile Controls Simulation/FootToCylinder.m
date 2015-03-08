@@ -1,13 +1,28 @@
-%A function that takes in the foot position and returns the length of
-%cylinder 1 and cylinder 2
-%Inputs
-%L1 - Link 1, L2 - Link 2
-%D1 - Distance along Link 1 where Link 2 is attached
-%D2 - Distance along Link 2 where Link 1 is attahced
-%P1x, P1y - ground position of cylinder 1
-%P11 - Distance along L1 where cylidner 1 is attached
-%P21 - postion of Cylinder 2 on link 1, P22 - Position of Cylinder 2 on link 2
-%x, y - Foot Position
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main File   : FootToCylinder.m
+% Source Files: None 
+% Dependancies: InverseKinematics
+% Description : Calculates the cylinder length based on the position of the
+% foot of the robot
+% Input       : D1 - distance from hip joint to knee joint
+%               D2 - distance from knee joint to foot
+%               P1x - x position where the upper cylinder is attached at
+%               the chassis
+%               P2y - y position where the upper cylinder is attached at
+%               the chassis
+%               P11 - length along the upper link where the upper cylinder
+%               is attached
+%               P21 - length along the upper link where the lower cylinder
+%               is attached
+%               P22 - length along the lower link where the lower cylinder
+%               is attached
+%               x - x position of the robot foot
+%               y - y position of the robot foot
+% Output      : lengths - array of the cylinder lengths
+%               [upper cylinder, lower cylinder]
+% Author      : Logan Beaver
+% Date        : 10/15/2014
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function lengths = FootToCylinder(D1, D2, P1x, P1y, P11, P21, P22, x, y)
 %Calculate inverse kinematics
 Theta = InverseKinematics(D1, D2, x, y);

@@ -1,14 +1,25 @@
-%Function used to simulate the robotic leg
-%Inputs:
-%Link1, Link2 - .stl files
-%L1, L2 - the length of each link
-%L12 - the distance along L1 where L2 is attached
-%L21 - the distance along L2 where L1 is attached
-%P1x, P1y - the ground location of piston 1
-%P12 - the distance of piston 1's attachment point on link 2
-%p21 - the distance of piston 2's attachment point on link 1
-%p22 - the distance of piston 2's attachment point on link 2
-%Theta1 and Theta2 are the starting conditions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main File   : LegModel.m
+% Source Files: None 
+% Dependancies: FootToCylinder, ForewardKinematics, InverseKinematics
+% Description : Calculates the positions for a quarter meter
+%               elliptical step with a height of .05 m.
+% Input       : 
+%               Link1, Link2 - .stl files
+%               L1, L2 - the length of each link
+%               L12 - the distance along L1 where L2 is attached
+%               L21 - the distance along L2 where L1 is attached
+%               P1x, P1y - the ground location of piston 1
+%               P12 - the distance of piston 1's attachment point on link 2
+%               p21 - the distance of piston 2's attachment point on link 1
+%               p22 - the distance of piston 2's attachment point on link 2
+%               path - Defined array of points for positions along the step
+%               sampleDistance - Distance between each sample point
+%               time - Time for a whole step
+% Output      : y - 2D array of Hip Theta and Knee Theta
+% Author      : Logan Beaver
+% Date        : 03/08/2015
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function y=LegModel(Link1, Link2, L1, L2, L12, L21, P1x, P1y, P11, P21, P22,path,sampleDistance, time)
 %calculate the number of points in the path
 numPts = size(path);

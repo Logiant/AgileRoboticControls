@@ -1,5 +1,3 @@
-
-function [p,V,p2,V2] = cad2poly(filename, filename2)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main File : cad2poly.m 
 % Source Files: cad2mat.m 
@@ -11,7 +9,7 @@ function [p,V,p2,V2] = cad2poly(filename, filename2)
 % Author      : Dr. L.A. Rodriguez
 % Date        : 02/04/2014
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+function [p,V,p2,V2] = cad2poly(filename, filename2)
 % Converts CAD data to MATLAB using the cad2ply.m file, which is a 
 % modified version of the cad2matdemo.m file located on the 
 % Mathworks central file exchange.

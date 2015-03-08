@@ -1,3 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main File   : SemiEllipseStep.m
+% Source Files: None 
+% Dependancies: None 
+% Description : Calculates the positions for a quarter meter
+%               elliptical step with a height of .05 m.
+% Input       : None
+% Output      : positions - array of positions in an elliptical step
+% Author      : Logan Beaver
+% Date        : 02/22/2015
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function positions = SemiEllipseStep()
 halfStep = 0.25;%m
 stepHeight = 0.05;%m
