@@ -1,5 +1,15 @@
-%Handles configuration of the leg model and inputting values in LegModel.m
-%Logan Beaver 10/23/14
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main File   : ARCLegModelHandler.m
+% Dependancies: LegModel, MatrixDynamics
+% Description : %Handles configuration of the leg model and inputting 
+% values into LegModel.m assuming a drag gait, solves dynamics from
+% MatrixDynamics
+% Input       : Step Distance, Maximum Speed, Step Phase
+% Output      : Torques and Forces for the whole robot during Leg 1's
+% maximum hip and knee accelerations in workspace
+% Author      : Logan Beaver
+% Date        : 03/08/2015
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear; clc; close all;
 Link1 = 'Thigh.stl';
 Link2 = 'Shank.stl';
@@ -114,21 +124,7 @@ F = subs(F, th2dot, 0); F = subs(F, th3dot, 0); F = subs(F, th4dot, 0);
 F = subs(F, tk2dot, 0); F = subs(F, tk3dot, 0); F = subs(F, tk4dot, 0);
 F = subs(F, th2ddot, 0); F = subs(F, th3ddot, 0); F = subs(F, th4ddot, 0);
 F = subs(F, tk2ddot, 0); F = subs(F, tk3ddot, 0); F = subs(F, tk4ddot, 0);
-%force values-----------------------------------------------FOOT FORCES
-syms FF1x FF1y FF2x FF2y FF3x FF3y FF4x FF4y;
-if dragging
-    T = subs(T, FF1x, 3*totalWeight/4*frictionFactor); T = subs(T, FF2x, totalWeight/4*frictionFactor); T = subs(T, FF3x, totalWeight/4*frictionFactor); T = subs(T, FF4x, totalWeight/4*frictionFactor);
-    T = subs(T, FF1y, totalWeight/4); T = subs(T, FF2y, totalWeight/4); T = subs(T, FF3y, totalWeight/4); T = subs(T, FF4y, totalWeight/4);
-    %force
-    F = subs(F, FF1x, 3*totalWeight/4*frictionFactor); F = subs(F, FF2x, totalWeight/4*frictionFactor); F = subs(F, FF3x, totalWeight/4*frictionFactor); F = subs(F, FF4x, totalWeight/4*frictionFactor);
-    F = subs(F, FF1y, totalWeight/4); F = subs(F, FF2y, totalWeight/4); F = subs(F, FF3y, totalWeight/4); F = subs(F, FF4y, totalWeight/4);
-else
-    T = subs(T, FF1x, 0); T = subs(T, FF2x, 0); T = subs(T, FF3x, 0); T = subs(T, FF4x, 0);
-    T = subs(T, FF1y, 0); T = subs(T, FF2y, totalWeight/3); T = subs(T, FF3y, totalWeight/3); T = subs(T, FF4y, totalWeight/3);
-    %force
-    F = subs(F, FF1x, 0); F = subs(F, FF2x, 0); F = subs(F, FF3x, 0); F = subs(F, FF4x, 0);
-    F = subs(F, FF1y, 0); F = subs(F, FF2y, totalWeight/3); F = subs(F, FF3y, totalWeight/3); F = subs(F, FF4y, totalWeight/3);
-end
+
 
 %masses and weights ---------------------------------------MASSES
 syms mS1 mS2 mS3 mS4 mT1 mT2 mT3 mT4 g;
@@ -161,6 +157,26 @@ F = subs(F, IS1z, iS);F = subs(F, IT1z, iT);
 %T = subs(T, IS2z, iS);T = subs(T, IT2z, iT);
 %T = subs(T, IS3z, iS);T = subs(T, IT3z, iT);
 %T = subs(T, IS4z, iS);T = subs(T, IT4z, iT);
+
+%force values-----------------------------------------------FOOT FORCES
+syms FF1x FF1y FF2x FF2y FF3x FF3y FF4x FF4y;
+if dragging
+    T = subs(T, FF1x, 3*totalWeight/4*frictionFactor); T = subs(T, FF2x, totalWeight/4*frictionFactor); T = subs(T, FF3x, totalWeight/4*frictionFactor); T = subs(T, FF4x, totalWeight/4*frictionFactor);
+    T = subs(T, FF1y, totalWeight/4); T = subs(T, FF2y, totalWeight/4); T = subs(T, FF3y, totalWeight/4); T = subs(T, FF4y, totalWeight/4);
+    %force
+    F = subs(F, FF1x, 3*totalWeight/4*frictionFactor); F = subs(F, FF2x, totalWeight/4*frictionFactor); F = subs(F, FF3x, totalWeight/4*frictionFactor); F = subs(F, FF4x, totalWeight/4*frictionFactor);
+    F = subs(F, FF1y, totalWeight/4); F = subs(F, FF2y, totalWeight/4); F = subs(F, FF3y, totalWeight/4); F = subs(F, FF4y, totalWeight/4);
+else
+    T = subs(T, FF2x, 0); T = subs(T, FF3x, 0); T = subs(T, FF4x, 0);
+    T = subs(T, FF2y, totalWeight/3); T = subs(T, FF3y, totalWeight/3); T = subs(T, FF4y, totalWeight/3);
+    TImp = T;
+    T = subs(T, FF1x, 0); T = subs(T, FF1y, 0); 
+    %force
+    F = subs(F, FF2x, 0); F = subs(F, FF3x, 0); F = subs(F, FF4x, 0);
+    F = subs(F, FF2y, totalWeight/3); F = subs(F, FF3y, totalWeight/3); F = subs(F, FF4y, totalWeight/3);
+    FImp = F;
+    F = subs(F, FF1x, 0);F = subs(F, FF1y, 0); 
+end
 
 syms th1 tk1 th1dot tk1dot th1ddot tk1ddot
 
@@ -266,9 +282,38 @@ if ~dragging
     if mag1 > mag2
         fprintf('Impulse force of %g N\n', mag1);
         fprintf('Components: %g N x, %g N y \n', Fi1(1), Fi1(2));
+        %calc reaction forces
+        %Insert Values-------------------------------------------ANGLES
+        %torques
+        TImp = subs(TImp, th1, theta1(i1));        TImp = subs(TImp, tk1, theta2(i1));
+        TImp = subs(TImp, th1dot, dTheta1(i1));    TImp = subs(TImp, tk1dot, dTheta2(i1));
+        TImp = subs(TImp, th1ddot, ddTheta1(i1));  TImp = subs(TImp, tk1ddot, ddTheta2(i1));
+        %forces
+        FImp = subs(FImp, th1, theta1(i1));        FImp = subs(FImp, tk1, theta2(i1));
+        FImp = subs(FImp, th1dot, dTheta1(i1));    FImp = subs(FImp, tk1dot, dTheta2(i1));
+        FImp = subs(FImp, th1ddot, ddTheta1(i1));  FImp = subs(FImp, tk1ddot, ddTheta2(i1));
+        %---calculating values
+        FImp = subs(FImp, FF1x, Fi1(1)); FImp = subs(FImp, FF1y, Fi1(2));
+        TImp = subs(TImp, FF1x, Fi1(1)); TImp = subs(TImp, FF1y, Fi1(2)); 
+
     else
         fprintf('Impulse force of %g \n', mag2);
         fprintf('Components: %g N x, %g N y \n', Fi2(1), Fi2(2));
+        %calc reaction forces
+        %Insert Values-------------------------------------------ANGLES
+        %torques
+        TImp = subs(TImp, th1, theta1(i2));        TImp = subs(TImp, tk1, theta2(i2));
+        TImp = subs(TImp, th1dot, dTheta1(i2));    TImp = subs(TImp, tk1dot, dTheta2(i2));
+        TImp = subs(TImp, th1ddot, ddTheta1(i2));  TImp = subs(TImp, tk1ddot, ddTheta2(i2));
+        %forces
+        FImp = subs(FImp, th1, theta1(i2));        FImp = subs(FImp, tk1, theta2(i2));
+        FImp = subs(FImp, th1dot, dTheta1(i2));    FImp = subs(FImp, tk1dot, dTheta2(i2));
+        FImp = subs(FImp, th1ddot, ddTheta1(i2));  FImp = subs(FImp, tk1ddot, ddTheta2(i2));
+        %---calculating values
+        FImp = subs(FImp, FF1x, Fi2(1)); FImp = subs(FImp, FF1y, Fi2(2));
+        TImp = subs(TImp, FF1x, Fi2(1)); TImp = subs(TImp, FF1y, Fi2(2)); 
     end
+    FImp = eval(FImp);
+    TImp = eval(TImp);
 end
 fprintf('Simulation complete!\n');
