@@ -1,0 +1,5 @@
+package arc.msoe.hmi.comms;
+
+public class ReadThread {
+
+}

@@ -1,0 +1,10 @@
+package arc.msoe.hmi;
+/**
+ * This class is called by the MainGUI to read/write data to the robot
+ * Dependancies: ReadThred, WriteThread
+ * @author beaverl
+ *
+ */
+public class RTComms {
+
+}

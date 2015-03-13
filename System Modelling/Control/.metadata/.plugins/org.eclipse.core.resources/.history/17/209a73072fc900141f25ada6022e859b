@@ -1,0 +1,9 @@
+package arc.msoe.hmi.comms;
+/**
+ * A thread that writes data from RTComms to the Xbee controller
+ * @author beaverl
+ *
+ */
+public class WriteThread extends Thread {
+
+}

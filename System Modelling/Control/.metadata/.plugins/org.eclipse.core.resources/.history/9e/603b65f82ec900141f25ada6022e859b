@@ -1,0 +1,11 @@
+package arc.msoe.hmi.comms;
+/**
+ * A thread that reads from the Xbee wireless communicatior
+ * 
+ * 3/12/2015
+ * @author beaverl
+ *
+ */
+public class ReadThread extends Thread {
+
+}

@@ -1,0 +1,9 @@
+package arc.msoe.hmi.comms;
+/**
+ * Takes input from the user controller and provides the requested action to MainGUI
+ * @author beaverl
+ *
+ */
+public class InputThread {
+
+}
