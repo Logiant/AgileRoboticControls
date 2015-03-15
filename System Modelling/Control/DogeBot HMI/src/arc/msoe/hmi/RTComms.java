@@ -9,8 +9,9 @@ import arc.msoe.hmi.comms.*;
  * This class is called by the MainGUI to read/write data to the robot
  * Uses ReadThread and WriteThread to communicate with the Xbee wireless communicator
  * 
- * 3/12/2015
+ * 3/15/2015
  * @author beaverl
+ * @author paddockt
  *
  */
 public class RTComms {
@@ -24,21 +25,23 @@ public class RTComms {
 	public RTComms() {
 		String path = System.getProperty("user.dir") + "\\res\\";
 
-		lib = (DLL) Native.loadLibrary(path + "kernel.dll", 
+		lib = (DLL) Native.loadLibrary(path + "DLLTest.dll", 
 				DLL.class);
 	}
 	
 	
 	public void dllTest() {
-
-	    lib.Beep(698, 500);
+		double sa = 0;
+		double vol = 0;
+	    System.out.println("The radius should be two: " + lib.GetSphereSAandVol(1, sa, vol));
+	    System.out.println("Surface area = " + sa);
+	    System.out.println("Volume = " + vol);
 
 	}
 	//Test interface using JNA to load a .dll file
 	public interface DLL extends Library {
 	       // FREQUENCY is expressed in hertz and ranges from 37 to 32767
 	       // DURATION is expressed in milliseconds
-	       public boolean Beep(int FREQUENCY, int DURATION);
-	       public void Sleep(int DURATION);
+	       public int GetSphereSAandVol(double radius, double sa, double vol);
 	   }
 }

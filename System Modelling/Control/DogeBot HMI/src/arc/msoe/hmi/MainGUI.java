@@ -22,7 +22,7 @@ import arc.msoe.hmi.comms.InputThread;
  * Creates the main GUI and serves as the bridge between user input and the Xbee controller
  * Provides updates on the current state of the robot
  * 
- * 3/12/2015
+ * 3/15/2015
  * @author beaverl
  *
  */
