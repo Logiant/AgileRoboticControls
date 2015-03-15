@@ -1,0 +1,14 @@
+package test;
+
+public class HelloJNI {
+	static {
+		System.loadLibrary("res/kernel32");
+	}
+	
+	private native void beep(int freq, int dur);
+	
+	
+	public static void main(String[] args) {
+		new HelloJNI().beep(698, 500);
+	}
+}

@@ -1,0 +1,22 @@
+package test;
+
+public class HelloJNI {
+	static {
+		String path = System.getProperty("user.dir") + "\\res\\";
+//		System.out.println(path);
+		System.load(path + "kernel32.dll");
+//		System.loadLibrary("hello");
+		System.out.println("Load successful!");
+	}
+	
+	private native void beep(int FREQUENCY, int DURATION);
+	private native void sleep(int DURATION);
+	
+	
+	public static void main(String[] args) {
+		System.out.println(System.getenv() + "  ");
+		HelloJNI h = new HelloJNI();
+		
+//		h.beep(698, 500);
+	}
+}

@@ -1,0 +1,34 @@
+package arc.msoe.hmi.comms;
+/**
+ * Takes input from the user controller and provides the requested action to MainGUI
+ * 
+ * 3/12/2015
+ * @author beaverl
+ *
+ */
+public class InputThread extends Thread {
+
+	boolean connected;
+	volatile boolean running;
+
+	public InputThread() {
+		//check for a controller
+		connected = true; //controller found
+	}
+
+	public void run() {
+
+		while (running) { //while the thread is running
+			if (connected) { //if a controller is connected
+				running = true;
+				System.out.println("reading input...");
+				System.out.println("collecting data...");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}
