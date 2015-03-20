@@ -1,0 +1,19 @@
+﻿Build started 3/17/2015 10:12:25 AM.
+     1>Project "D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\XboxInterface\XboxInterface.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D XBOXINTERFACE_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\x64\Release\XboxInterface.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\x64\Release\XboxInterface.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\x64\Release\XboxInterface.lib" /MACHINE:X64 /DLL x64\Release\dllmain.obj
+         x64\Release\stdafx.obj
+         x64\Release\XboxInterface.obj
+         ..\..\Xinput.lib
+            Creating library D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\x64\Release\XboxInterface.lib and object D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\x64\Release\XboxInterface.exp
+         Generating code
+         Finished generating code
+         XboxInterface.vcxproj -> D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\x64\Release\XboxInterface.dll
+     1>Done Building Project "D:\MyDocs\Desktop\School\Active Classes\Senior Design\Git\AgileRoboticControls\Design\Communication Software\XboxInterface\XboxInterface\XboxInterface\XboxInterface.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.95
