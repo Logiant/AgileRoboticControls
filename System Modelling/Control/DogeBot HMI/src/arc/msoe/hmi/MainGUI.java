@@ -106,7 +106,7 @@ public class MainGUI extends JFrame{
 		input = new InputThread();
 		inputThread = new Thread(input);
 		inputThread.start();
-		comms = new RTComms();
+//		comms = new RTComms();
 		//declare images
 		BufferedImage LEDOnImage = null;
 		BufferedImage LEDOffImage = null;
@@ -220,7 +220,7 @@ public class MainGUI extends JFrame{
 	
 	
 	private void dllTest() {
-		comms.dllTest();
+//		comms.dllTest();
 		System.out.println("testing DLL");
 	}
 
