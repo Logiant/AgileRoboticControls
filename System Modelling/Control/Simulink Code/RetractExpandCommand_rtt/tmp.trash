@@ -1,0 +1,10 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e9801
+avrdude: reading input file "RetractExpandCommand.hex"
+avrdude: input file RetractExpandCommand.hex auto detected as Intel Hex
+avrdude: writing flash (6058 bytes):
+avrdude: 6058 bytes of flash written
+
+avrdude done.  Thank you.
+
