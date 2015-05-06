@@ -42,6 +42,8 @@
 		<item value="false" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_LOCATION"/>
 	</section>
 	<section name="completion_proposal_size">
+		<item value="277" key="contextSelector.size.y"/>
+		<item value="337" key="contextSelector.size.x"/>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
