@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'SingleCylinderTest'.
  *
- * Model version                  : 1.121
+ * Model version                  : 1.126
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Wed Apr 29 18:56:04 2015
+ * C/C++ source code generated on : Thu Apr 30 18:37:11 2015
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -17,6 +17,7 @@
 #ifndef RTW_HEADER_SingleCylinderTest_private_h_
 #define RTW_HEADER_SingleCylinderTest_private_h_
 #include "rtwtypes.h"
+#include "multiword_types.h"
 #ifndef UCHAR_MAX
 #include <limits.h>
 #endif
@@ -40,6 +41,11 @@
 #ifndef __RTWTYPES_H__
 #error This file requires rtwtypes.h to be included
 #endif                                 /* __RTWTYPES_H__ */
+
+extern real_T uMultiWord2Double(const uint32_T u1[], int16_T n1, int16_T e1);
+extern void uMultiWordMul(const uint32_T u1[], int16_T n1, const uint32_T u2[],
+  int16_T n2, uint32_T y[], int16_T n);
+
 #endif                                 /* RTW_HEADER_SingleCylinderTest_private_h_ */
 
 /*

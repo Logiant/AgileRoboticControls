@@ -3,8 +3,8 @@ avrdude: AVR device initialized and ready to accept instructions
 avrdude: Device signature = 0x1e9801
 avrdude: reading input file "SingleCylinderTest.hex"
 avrdude: input file SingleCylinderTest.hex auto detected as Intel Hex
-avrdude: writing flash (8034 bytes):
-avrdude: 8034 bytes of flash written
+avrdude: writing flash (9744 bytes):
+avrdude: 9744 bytes of flash written
 
 avrdude done.  Thank you.
 
