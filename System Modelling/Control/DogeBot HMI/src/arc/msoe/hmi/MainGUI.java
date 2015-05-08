@@ -106,7 +106,7 @@ public class MainGUI extends JFrame{
 		input = new InputThread();
 		inputThread = new Thread(input);
 		inputThread.start();
-//		comms = new RTComms();
+//		comms = new RTComms();pt
 		//declare images
 		BufferedImage LEDOnImage = null;
 		BufferedImage LEDOffImage = null;

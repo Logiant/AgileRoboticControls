@@ -1,0 +1,14 @@
+package test;
+
+
+public class SerialWriteTest {
+    /* Constants */
+    // TODO Replace with the port where your sender module is connected to.
+    private static final String PORT = "COM3";
+    // TODO Replace with the baud rate of your sender module.
+    private static final int BAUD_RATE = 9600;
+          
+    public static void main(String[] args) {
+     
+    }
+}
