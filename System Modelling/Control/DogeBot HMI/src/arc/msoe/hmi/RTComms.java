@@ -1,7 +1,11 @@
 package arc.msoe.hmi;
 
-import com.sun.jna.Library;
-import com.sun.jna.Native;
+import gnu.io.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
 
 import arc.msoe.hmi.comms.*;
 
@@ -11,78 +15,131 @@ import arc.msoe.hmi.comms.*;
  * 
  * 3/15/2015
  * @author beaverl
- * @author paddockt
  *
  */
 public class RTComms {
 
-	ReadThread read;
+	Reader read;
 	WriteThread write;
 	
-	DLL lib;
+	String portName;
+	CommPortIdentifier commPortId;
+	SerialPort serialPort;
+	
+	InputStream input;
+	OutputStream output;
+	
+	boolean connected = false;
+	
+	final int TIMEOUT = 2000;
+	
+	
+	private int command = 0; //command to write
+	
 	
 	
 	public RTComms() {
-		String path = System.getProperty("user.dir") + "\\res\\";
-
-		lib = (DLL) Native.loadLibrary(path + "XboxInterface.dll", 
-				DLL.class);
+		read = new Reader();
 	}
 	
-	
-	public void dllTest() {
-	    System.out.println("Button STate: " + lib.getButtonStates(0));
-	    System.out.println("" + lib.getLeftJoyStick(0));
-	    System.out.println("" + lib.getRightJoyStick(0));
-	    System.out.println("" + lib.getTriggerStates(0));
-
+	public boolean beginConnection() {
+		boolean success = false;
+		searchForPorts();
+		if (commPortId != null) { //port found
+			success = connect();
+			connected = success;
+			System.out.println("Connection success");
+			if (input != null && output != null) {
+				System.out.println("IO Created successfully");
+				write = new WriteThread(this, output);
+				System.out.println("Write thread created");
+				write.start();
+				System.out.println("Write thread running");
+			} else {
+				System.err.println("ERROR: COULD NOT READ SERIAL IO VALUES");
+			}
+		} else {
+			System.err.println("ERROR: NO SERIAL DEVICE DETECTED");
+		}
+		return success;
 	}
-	//Test interface using JNA to load a .dll file
-	public interface DLL extends Library {
-	       // FREQUENCY is expressed in hertz and ranges from 37 to 32767
-	       // DURATION is expressed in milliseconds
-		/**
-		 * 
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return
-		 */
-		public int getLeftJoyStick(int controllerNumber);
+	
+	public void close() {
+		if (connected) {
+			write.close();
+			serialPort.removeEventListener();
+			serialPort.close();
+			try {
+				input.close();
+				output.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("disconnected");
+		}
+	}
+	
+	public void updateCommand(int cmd) {
+		command = cmd;
+	}
+	
+	public int getCommand() {
+		return command;
+	}
+	
+	//find available ports on the system
+	private void searchForPorts() {
+		@SuppressWarnings("rawtypes")
+		Enumeration ports = CommPortIdentifier.getPortIdentifiers(); //get all available ports
+		while(ports.hasMoreElements()) { //for each available port
+			CommPortIdentifier currentPort = (CommPortIdentifier)ports.nextElement();
+			//make sure the found port is serial
+			if (currentPort.getPortType() == CommPortIdentifier.PORT_SERIAL) {
+				//COM1 is a virtual port that we do not want. We also don't want a busy port
+				if (!currentPort.getName().equals("COM1") && !currentPort.isCurrentlyOwned()) {
+					portName = currentPort.getName(); //get the name of this port
+					System.out.println("Using " + portName + " for xBee serial communication");
+					commPortId = currentPort;
+					return; //get the first available port
+				}
+			}
+		}
+	}
+	
+	private boolean connect() {
+		CommPort commPort = null;
+		boolean connected = false;
+		try {
+			commPort = commPortId.open("Xbee", TIMEOUT);
+			serialPort = (SerialPort) commPort;
+			input = serialPort.getInputStream();
+			output = serialPort.getOutputStream();
+			serialPort.addEventListener(read);
+			System.out.println("Connected to " + serialPort.getName());
+			connected = true;
+		} catch (PortInUseException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return connected;
+	}
+	
+	private class Reader implements SerialPortEventListener {
+
+		@Override
+		public void serialEvent(SerialPortEvent event) {
+			 if (event.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
+		            try {
+		                byte singleData = (byte)input.read();
+		                System.out.println(singleData);
+		            } catch (Exception e) {
+			             e.printStackTrace();
+		            }
+		        }
+		}
 		
-		/**
-		 * Gets the x and y values of the right controller joy stick
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return int - first short is the 
-		 */
-		public int getRightJoyStick(int controllerNumber);
-		
-		/**
-		 * Gets all the non-analog button states from the Xbox controller
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return int representing each button on the Xbox controller
-		 * The following masks are used for each button
-		 * XINPUT_GAMEPAD_DPAD_UP	0x0001
-		 * XINPUT_GAMEPAD_DPAD_DOWN	0x0002
-		 * XINPUT_GAMEPAD_DPAD_LEFT	0x0004
-		 * XINPUT_GAMEPAD_DPAD_RIGHT	0x0008
-		 * XINPUT_GAMEPAD_START	0x0010
-		 * XINPUT_GAMEPAD_BACK	0x0020
-		 * XINPUT_GAMEPAD_LEFT_THUMB	0x0040
-		 * XINPUT_GAMEPAD_RIGHT_THUMB	0x0080
-		 * XINPUT_GAMEPAD_LEFT_SHOULDER	0x0100
-		 * XINPUT_GAMEPAD_RIGHT_SHOULDER	0x0200
-		 * XINPUT_GAMEPAD_A	0x1000
-		 * XINPUT_GAMEPAD_B	0x2000
-		 * XINPUT_GAMEPAD_X	0x4000
-		 * XINPUT_GAMEPAD_Y	0x8000
-		 */
-		public int getButtonStates(int controllerNumber);
-		
-		/**
-		 * Returns the analog values of each trigger 
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return A short representing the left trigger in the most significant
-		 * byte and the right trigger in the least significant byte
-		 */
-		public short getTriggerStates(int controllerNumber);
-	   }
+	}
+	
 }

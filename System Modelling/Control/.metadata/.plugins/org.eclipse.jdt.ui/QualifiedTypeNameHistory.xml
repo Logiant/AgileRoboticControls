@@ -17,10 +17,16 @@
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
-<fullyQualifiedTypeName name="java.util.Enumeration"/>
 <fullyQualifiedTypeName name="com.digi.xbee.api.XBeeDevice"/>
 <fullyQualifiedTypeName name="com.digi.xbee.api.exceptions.XBeeException"/>
-<fullyQualifiedTypeName name="gnu.io.CommPortIdentifier"/>
 <fullyQualifiedTypeName name="gnu.io.CommPort"/>
 <fullyQualifiedTypeName name="gnu.io.SerialPort"/>
+<fullyQualifiedTypeName name="gnu.io.CommPortIdentifier"/>
+<fullyQualifiedTypeName name="java.util.Enumeration"/>
+<fullyQualifiedTypeName name="arc.msoe.hmi.MainGUI"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="arc.msoe.hmi.RTComms"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="gnu.io.SerialPortEventListener"/>
 </qualifiedTypeNameHistroy>

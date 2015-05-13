@@ -28,6 +28,9 @@ import arc.msoe.hmi.comms.InputThread;
  */
 public class MainGUI extends JFrame{
 	
+	float commandWeight = 0.001f;
+	float cmd = 128;
+	
 	//Frame Constants
 	private static final long serialVersionUID = 1L;
 	int height = 600;
@@ -88,6 +91,8 @@ public class MainGUI extends JFrame{
 	JLabel commsText;
 	JLabel inputText;
 	
+	JLabel status;
+	
 	public MainGUI() {
 		this.setSize(width, height); //set the size of the window
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE); //close the window when exit is pressed
@@ -96,6 +101,7 @@ public class MainGUI extends JFrame{
 		setupComponents();
 		createGUI(); //create the GUI
 		this.setVisible(true); //make the window visible
+		setupThreads();
 	}
 	
 	/**
@@ -103,10 +109,7 @@ public class MainGUI extends JFrame{
 	 * 
 	 */
 	private void setupComponents() {
-		input = new InputThread();
-		inputThread = new Thread(input);
-		inputThread.start();
-//		comms = new RTComms();pt
+
 		//declare images
 		BufferedImage LEDOnImage = null;
 		BufferedImage LEDOffImage = null;
@@ -161,11 +164,22 @@ public class MainGUI extends JFrame{
 		controllerRef = new JLabel("Current Controller Reference: NONE"); //current controller command
 		commsText = new JLabel("Comms status: off");
 		inputText = new JLabel("Input Status: off");
+		status = new JLabel("Status: ");
 		//initialize Buttons
 		connect = new JButton("Connect");  //starts the comms
 		exit = new JButton("Exit");  //button used to close the program
 		connect.addActionListener(new ConnectListener());
 		exit.addActionListener(new EscapeListener());
+	}
+	
+	/**
+	 * Creates the threads for comms IO and controller input
+	 */
+	private void setupThreads() {
+		input = new InputThread(this);
+		inputThread = new Thread(input);
+		inputThread.start();
+		comms = new RTComms();
 	}
 	
 	/**
@@ -188,6 +202,9 @@ public class MainGUI extends JFrame{
 		buttonPanel.add(connect);
 		buttonPanel.add(exit);
 		bodyPanel.add(buttonPanel, BorderLayout.NORTH);
+		
+		bodyPanel.add(status, BorderLayout.SOUTH);
+
 		this.add(bodyPanel);
 		
 		JPanel statusPanel = new JPanel();
@@ -201,7 +218,6 @@ public class MainGUI extends JFrame{
 
 		
 		
-		
 //		this.add(Leg1T);
 //		this.add(Leg1S);
 //		this.add(Leg2T);
@@ -213,23 +229,34 @@ public class MainGUI extends JFrame{
 //		this.add(robotLabel);
 		
 	}
+			
+	public void updateState(int leftJoy, int rightJoy, int trigger, int button ) {
+		int up = button&1;
+		int down = ((button&2)>>1);
+		int direction = up - down;
 		
+
+		cmd += direction * commandWeight;
+		
+		cmd = Math.min(Math.max(0, cmd), 255); //clamp cmd to (0, 255)
+		
+	//	System.out.println((int)cmd);
+		status.setText("Command: " + (int)cmd);
+		comms.updateCommand((int)cmd);
+	}
+	
 	public static void main(String[] args) {
 		new MainGUI(); //create the GUI on startup
 	}
 	
 	
-	private void dllTest() {
-//		comms.dllTest();
-		System.out.println("testing DLL");
-	}
-
 	class EscapeListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			//gracefully shut down
 			input.close(); //stops controller input thread
+			comms.close();
 			// TODO disconnect comms
 			//close the program
 			System.exit(0);
@@ -244,8 +271,8 @@ public class MainGUI extends JFrame{
 			//send a connection request to RT Comms
 			//wait for timeout
 			//if the connection is accepted, the comms are not faulting
-			dllTest();
 			System.out.println("connecting...");
+			comms.beginConnection();
 		}
 	}
 }

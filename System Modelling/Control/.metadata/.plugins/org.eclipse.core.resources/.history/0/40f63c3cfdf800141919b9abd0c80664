@@ -1,0 +1,108 @@
+package arc.msoe.hmi;
+
+import gnu.io.CommPort;
+import gnu.io.CommPortIdentifier;
+import gnu.io.PortInUseException;
+import gnu.io.SerialPort;
+
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
+
+import arc.msoe.hmi.comms.*;
+
+/**
+ * This class is called by the MainGUI to read/write data to the robot
+ * Uses ReadThread and WriteThread to communicate with the Xbee wireless communicator
+ * 
+ * 3/15/2015
+ * @author beaverl
+ *
+ */
+public class RTComms {
+
+	ReadThread read;
+	WriteThread write;
+	
+	String portName;
+	CommPortIdentifier commPortId;
+	SerialPort serialPort;
+	
+	InputStream input;
+	OutputStream output;
+	
+	boolean connected = false;
+	
+	final int TIMEOUT = 2000;
+	
+	
+	private int command; //command to write
+	
+	
+	
+	public RTComms() {
+	
+	}
+	
+	public boolean beginConnection() {
+		boolean success = false;
+		searchForPorts();
+		if (commPortId != null) { //port found
+			success = connect();
+			connected = success;
+		} else {
+			System.err.println("ERROR: NO SERIAL DEVICE DETECTED");
+		}
+		return success;
+	}
+	
+	public void close() {
+		if (connected) {
+			serialPort.close();
+			System.out.println("disconnected");
+		}
+	}
+	
+	public void updateCommand(int cmd) {
+		command = cmd;
+	}
+	
+	//find available ports on the system
+	void searchForPorts() {
+		@SuppressWarnings("rawtypes")
+		Enumeration ports = CommPortIdentifier.getPortIdentifiers(); //get all available ports
+		while(ports.hasMoreElements()) { //for each available port
+			CommPortIdentifier currentPort = (CommPortIdentifier)ports.nextElement();
+			//make sure the found port is serial
+			if (currentPort.getPortType() == CommPortIdentifier.PORT_SERIAL) {
+				//COM1 is a virtual port that we do not want. We also don't want a busy port
+				if (!currentPort.getName().equals("COM1") && !currentPort.isCurrentlyOwned()) {
+					portName = currentPort.getName(); //get the name of this port
+					System.out.println("Using " + portName + " for xBee serial communication");
+					commPortId = currentPort;
+					return; //get the first available port
+				}
+			}
+		}
+	}
+	
+	private boolean connect() {
+		CommPort commPort = null;
+		boolean connected = false;
+		try {
+			commPort = commPortId.open("Xbee", TIMEOUT);
+			serialPort = (SerialPort) commPort;
+			input = serialPort.getInputStream();
+			output = serialPort.getOutputStream();
+			System.out.println("Connected to " + serialPort.getName());
+			connected = true;
+		} catch (PortInUseException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return connected;
+	}
+	
+	
+}

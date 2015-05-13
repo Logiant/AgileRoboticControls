@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="res/jna-4.1.0.jar"/>
 	<classpathentry kind="lib" path="res/xbee/RXTXcomm.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="DogeBot HMI/res/xbee"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="DogeBot HMI/res/xbee/natives"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
