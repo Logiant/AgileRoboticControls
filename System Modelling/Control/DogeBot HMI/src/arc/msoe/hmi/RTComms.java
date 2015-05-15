@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Enumeration;
+import java.util.LinkedList;
+import java.util.List;
 
 import arc.msoe.hmi.comms.*;
 
@@ -19,29 +21,27 @@ import arc.msoe.hmi.comms.*;
  */
 public class RTComms {
 
-	Reader read;
 	WriteThread write;
-	
+
 	String portName;
 	CommPortIdentifier commPortId;
 	SerialPort serialPort;
-	
+
 	InputStream input;
 	OutputStream output;
-	
+
 	boolean connected = false;
-	
+
 	final int TIMEOUT = 2000;
-	
-	
+
+
 	private int command = 0; //command to write
-	
-	
-	
+
+
+
 	public RTComms() {
-		read = new Reader();
 	}
-	
+
 	public boolean beginConnection() {
 		boolean success = false;
 		searchForPorts();
@@ -63,7 +63,7 @@ public class RTComms {
 		}
 		return success;
 	}
-	
+
 	public void close() {
 		if (connected) {
 			write.close();
@@ -79,15 +79,15 @@ public class RTComms {
 			System.out.println("disconnected");
 		}
 	}
-	
+
 	public void updateCommand(int cmd) {
 		command = cmd;
 	}
-	
+
 	public int getCommand() {
 		return command;
 	}
-	
+
 	//find available ports on the system
 	private void searchForPorts() {
 		@SuppressWarnings("rawtypes")
@@ -106,7 +106,7 @@ public class RTComms {
 			}
 		}
 	}
-	
+
 	private boolean connect() {
 		CommPort commPort = null;
 		boolean connected = false;
@@ -115,7 +115,8 @@ public class RTComms {
 			serialPort = (SerialPort) commPort;
 			input = serialPort.getInputStream();
 			output = serialPort.getOutputStream();
-			serialPort.addEventListener(read);
+			serialPort.addEventListener(new Reader());
+			serialPort.notifyOnDataAvailable(true);
 			System.out.println("Connected to " + serialPort.getName());
 			connected = true;
 		} catch (PortInUseException e) {
@@ -125,21 +126,52 @@ public class RTComms {
 		}
 		return connected;
 	}
-	
+
 	private class Reader implements SerialPortEventListener {
+
+		boolean begin = false;
+
+		boolean beginFooter;
+
+		int header = 0xad;
+		int end1 = 0x01;
+		int end2 = 0x10;
+
+		List<Integer> packetData;
 
 		@Override
 		public void serialEvent(SerialPortEvent event) {
-			 if (event.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
-		            try {
-		                byte singleData = (byte)input.read();
-		                System.out.println(singleData);
-		            } catch (Exception e) {
-			             e.printStackTrace();
-		            }
-		        }
+			if (event.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
+				try {
+					byte singleData = (byte)input.read();
+					int data = singleData & 0xff;
+					if (data == header && !begin) {
+						begin = true;
+						packetData = new LinkedList<Integer>();
+					} else if (beginFooter) {
+						if (data == end2) {
+							begin = false;
+							//send data
+							System.out.println("Packet Info:");
+							for (Integer I : packetData) {
+								System.out.println(I);
+							}
+							beginFooter = false;
+						}
+					} else if (data == end1) {
+						beginFooter = true;
+					}else if (begin) {
+						packetData.add(data);
+					}
+
+
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		
+
 	}
-	
+
 }
