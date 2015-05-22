@@ -1,0 +1,10 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e9801
+avrdude: reading input file "XbeeIO.hex"
+avrdude: input file XbeeIO.hex auto detected as Intel Hex
+avrdude: writing flash (5190 bytes):
+avrdude: 5190 bytes of flash written
+
+avrdude done.  Thank you.
+
