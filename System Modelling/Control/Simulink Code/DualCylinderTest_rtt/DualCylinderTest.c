@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'DualCylinderTest'.
  *
- * Model version                  : 1.126
+ * Model version                  : 1.129
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Thu Apr 30 18:42:35 2015
+ * C/C++ source code generated on : Fri May 22 11:32:24 2015
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -140,7 +140,7 @@ void DualCylinderTest_output(void)
    *  UnitDelay: '<S4>/Unit Delay1'
    */
   rtb_Product *= (real_T)(fabs(DualCylinderTest_DW.UnitDelay_DSTATE -
-    DualCylinderTest_DW.UnitDelay1_DSTATE) < DualCylinderTest_P.Constant_Value_m);
+    DualCylinderTest_DW.UnitDelay1_DSTATE) < DualCylinderTest_P.Constant_Value);
 
   /* Chart: '<S5>/Chart' incorporates:
    *  UnitDelay: '<S5>/Unit Delay1'
@@ -254,11 +254,11 @@ void DualCylinderTest_output(void)
 
   /* End of MATLAB Function: '<S7>/MATLAB Function' */
 
+  /* Gain: '<Root>/Normalize' */
+  rtb_Product = DualCylinderTest_P.Normalize_Gain * DualCylinderTest_B.x;
+
   /* S-Function (arduinoanaloginput_sfcn): '<S2>/Feedback Voltage' */
   rtb_FeedbackVoltage_0 = MW_analogRead(DualCylinderTest_P.FeedbackVoltage_p1);
-
-  /* Gain: '<Root>/P' */
-  rtb_Product = DualCylinderTest_P.P_Gain * DualCylinderTest_B.x;
 
   /* Gain: '<S2>/P' incorporates:
    *  Gain: '<S2>/Normalize Feedback'
@@ -267,7 +267,7 @@ void DualCylinderTest_output(void)
    */
   rtb_Abs1 = (rtb_Product - (real_T)((uint32_T)
     DualCylinderTest_P.NormalizeFeedback_Gain_g * rtb_FeedbackVoltage_0) *
-              2.9802322387695313E-8) * DualCylinderTest_P.P_Gain_b;
+              3.0517578125E-5) * DualCylinderTest_P.P_Gain;
 
   /* Switch: '<S13>/Switch' incorporates:
    *  Constant: '<S13>/Constant1'
@@ -326,6 +326,11 @@ void DualCylinderTest_output(void)
   /* Sum: '<S2>/Sum2' */
   DualCylinderTest_B.Sum2 = rtb_Abs1_p + rtb_Abs1;
 
+  /* Sum: '<Root>/Sum' incorporates:
+   *  Constant: '<Root>/Shank Offset'
+   */
+  rtb_Product = DualCylinderTest_P.ShankOffset_Value - rtb_Product;
+
   /* S-Function (arduinoanaloginput_sfcn): '<S3>/Feedback Voltage' */
   rtb_FeedbackVoltage_0 = MW_analogRead(DualCylinderTest_P.FeedbackVoltage_p1_n);
 
@@ -339,12 +344,9 @@ void DualCylinderTest_output(void)
                 &tmp.chunks[0U], 2);
 
   /* Gain: '<S3>/P' incorporates:
-   *  Constant: '<Root>/Constant'
-   *  Sum: '<Root>/Sum'
    *  Sum: '<S3>/Sum1'
    */
-  rtb_Abs1_p = ((DualCylinderTest_P.Constant_Value - rtb_Product) -
-                uMultiWord2Double(&tmp.chunks[0U], 2, 0) *
+  rtb_Abs1_p = (rtb_Product - uMultiWord2Double(&tmp.chunks[0U], 2, 0) *
                 1.3877787807814457E-17) * DualCylinderTest_P.P_Gain_h;
 
   /* Switch: '<S16>/Switch' incorporates:

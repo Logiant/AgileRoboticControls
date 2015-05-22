@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'DualCylinderTest'.
  *
- * Model version                  : 1.126
+ * Model version                  : 1.129
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Thu Apr 30 18:42:35 2015
+ * C/C++ source code generated on : Fri May 22 11:32:24 2015
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -85,9 +85,6 @@ struct P_DualCylinderTest_T_ {
   real_T Constant1_Value_j;            /* Expression: 1
                                         * Referenced by: '<S16>/Constant1'
                                         */
-  real_T Constant_Value;               /* Expression: 1
-                                        * Referenced by: '<Root>/Constant'
-                                        */
   real_T Step_Time;                    /* Expression: 0
                                         * Referenced by: '<Root>/Step'
                                         */
@@ -103,16 +100,19 @@ struct P_DualCylinderTest_T_ {
   real_T UnitDelay1_InitialCondition;  /* Expression: 0
                                         * Referenced by: '<S4>/Unit Delay1'
                                         */
-  real_T Constant_Value_m;             /* Expression: 10
+  real_T Constant_Value;               /* Expression: 500
                                         * Referenced by: '<S6>/Constant'
                                         */
   real_T UnitDelay1_InitialCondition_l;/* Expression: 0
                                         * Referenced by: '<S5>/Unit Delay1'
                                         */
-  real_T P_Gain;                       /* Expression: 1/5
-                                        * Referenced by: '<Root>/P'
+  real_T Normalize_Gain;               /* Expression: 1/5
+                                        * Referenced by: '<Root>/Normalize'
                                         */
-  real_T P_Gain_b;                     /* Expression: 3000
+  real_T ShankOffset_Value;            /* Expression: 1
+                                        * Referenced by: '<Root>/Shank Offset'
+                                        */
+  real_T P_Gain;                       /* Expression: 3000
                                         * Referenced by: '<S2>/P'
                                         */
   real_T Switch_Threshold;             /* Expression: 0
@@ -195,8 +195,8 @@ extern RT_MODEL_DualCylinderTest_T *const DualCylinderTest_M;
  *
  * '<Root>' : 'DualCylinderTest'
  * '<S1>'   : 'DualCylinderTest/High Level System Controller'
- * '<S2>'   : 'DualCylinderTest/Long Cylinder PID'
- * '<S3>'   : 'DualCylinderTest/Short Cylinder PID'
+ * '<S2>'   : 'DualCylinderTest/Shank PID'
+ * '<S3>'   : 'DualCylinderTest/Thigh PID'
  * '<S4>'   : 'DualCylinderTest/High Level System Controller/System Model'
  * '<S5>'   : 'DualCylinderTest/High Level System Controller/System Model/State Machine'
  * '<S6>'   : 'DualCylinderTest/High Level System Controller/System Model/Threshold'
@@ -204,12 +204,12 @@ extern RT_MODEL_DualCylinderTest_T *const DualCylinderTest_M;
  * '<S8>'   : 'DualCylinderTest/High Level System Controller/System Model/State Machine/Chart'
  * '<S9>'   : 'DualCylinderTest/High Level System Controller/System Model/State Machine/MATLAB Function'
  * '<S10>'  : 'DualCylinderTest/High Level System Controller/System Model/State Machine/Calculate Foot Position/MATLAB Function'
- * '<S11>'  : 'DualCylinderTest/Long Cylinder PID/Extend Command'
- * '<S12>'  : 'DualCylinderTest/Long Cylinder PID/Retract Command'
- * '<S13>'  : 'DualCylinderTest/Long Cylinder PID/Split Signal'
- * '<S14>'  : 'DualCylinderTest/Short Cylinder PID/Extend Command'
- * '<S15>'  : 'DualCylinderTest/Short Cylinder PID/Retract Command'
- * '<S16>'  : 'DualCylinderTest/Short Cylinder PID/Split Signal'
+ * '<S11>'  : 'DualCylinderTest/Shank PID/Extend Command'
+ * '<S12>'  : 'DualCylinderTest/Shank PID/Retract Command'
+ * '<S13>'  : 'DualCylinderTest/Shank PID/Split Signal'
+ * '<S14>'  : 'DualCylinderTest/Thigh PID/Extend Command'
+ * '<S15>'  : 'DualCylinderTest/Thigh PID/Retract Command'
+ * '<S16>'  : 'DualCylinderTest/Thigh PID/Split Signal'
  */
 #endif                                 /* RTW_HEADER_DualCylinderTest_h_ */
 

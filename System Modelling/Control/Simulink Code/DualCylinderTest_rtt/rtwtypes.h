@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'DualCylinderTest'.
  *
- * Model version                  : 1.126
+ * Model version                  : 1.129
  * Simulink Coder version         : 8.6 (R2014a) 27-Dec-2013
  * TLC version                    : 8.6 (Jan 30 2014)
- * C/C++ source code generated on : Thu Apr 30 18:42:35 2015
+ * C/C++ source code generated on : Fri May 22 11:32:24 2015
  *
  * Target selection: realtime.tlc
  * Embedded hardware selection: Atmel->AVR

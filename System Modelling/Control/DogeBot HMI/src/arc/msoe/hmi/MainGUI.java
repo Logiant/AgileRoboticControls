@@ -29,7 +29,7 @@ import arc.msoe.hmi.comms.InputThread;
 public class MainGUI extends JFrame{
 	
 	float commandWeight = 0.001f;
-	float cmd = 128;
+	float cmd = 0;
 	
 	//Frame Constants
 	private static final long serialVersionUID = 1L;
@@ -236,9 +236,9 @@ public class MainGUI extends JFrame{
 		int direction = up - down;
 		
 
-		cmd += direction * commandWeight;
+		cmd = direction * 128 + 128;
 		
-		cmd = Math.min(Math.max(0, cmd), 255); //clamp cmd to (0, 255)
+		cmd = Math.min(Math.max(0, cmd), 255); //clamp cmd to (-1, 1), (backward, forward)
 		
 	//	System.out.println((int)cmd);
 		status.setText("Command: " + (int)cmd);
