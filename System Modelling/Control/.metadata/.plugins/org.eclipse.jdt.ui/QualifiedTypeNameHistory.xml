@@ -29,4 +29,7 @@
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="gnu.io.SerialPortEventListener"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyAdapter"/>
+<fullyQualifiedTypeName name="java.awt.KeyEventDispatcher"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyListener"/>
 </qualifiedTypeNameHistroy>

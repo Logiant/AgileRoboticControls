@@ -92,7 +92,7 @@ public class MainGUI extends JFrame{
 	JLabel inputText;
 	
 	JLabel status;
-	
+		
 	public MainGUI() {
 		this.setSize(width, height); //set the size of the window
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE); //close the window when exit is pressed
@@ -177,6 +177,10 @@ public class MainGUI extends JFrame{
 	 */
 	private void setupThreads() {
 		input = new InputThread(this);
+		this.addKeyListener(input.getKeyboard());
+		this.setFocusable(true);
+		this.requestFocus();
+		
 		inputThread = new Thread(input);
 		inputThread.start();
 		comms = new RTComms();
@@ -230,17 +234,15 @@ public class MainGUI extends JFrame{
 		
 	}
 			
-	public void updateState(int leftJoy, int rightJoy, int trigger, int button ) {
-		int up = button&1;
-		int down = ((button&2)>>1);
+	public void updateState(byte horizontalAxis, byte verticalAxis) {
+		int up = verticalAxis&1;
+		int down = ((verticalAxis&2)>>1);
 		int direction = up - down;
-		
 
 		cmd = direction * 128 + 128;
 		
 		cmd = Math.min(Math.max(0, cmd), 255); //clamp cmd to (-1, 1), (backward, forward)
 		
-	//	System.out.println((int)cmd);
 		status.setText("Command: " + (int)cmd);
 		comms.updateCommand((int)cmd);
 	}
@@ -275,4 +277,5 @@ public class MainGUI extends JFrame{
 			comms.beginConnection();
 		}
 	}
+	
 }

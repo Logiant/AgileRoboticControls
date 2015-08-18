@@ -1,0 +1,86 @@
+package arc.msoe.hmi.comms;
+
+import arc.msoe.hmi.MainGUI;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+
+/**
+ * Takes input from the user controller and provides the requested action to MainGUI
+ * 
+ * 5/12/2015
+ * @author beaverl
+ *
+ */
+public class InputThread extends Thread {
+
+	MainGUI gui;
+	KeyboardListener keyboard;
+	int sleepMS = 20; //ms, time to sleep between updates
+
+	volatile boolean running;
+
+	public InputThread(MainGUI gui) {
+		this.gui = gui;
+		keyboard = new KeyboardListener();
+	}
+
+	public KeyboardListener getKeyboard() {
+		return keyboard;
+	}
+	
+	@Override
+	public void run() {
+		running = true;
+
+		while(running) {
+			dllTest();
+			//sleep for 20 ms
+		}
+
+	}
+
+	public void close() {
+		running = false;
+	}
+
+	public void dllTest() {
+		gui.updateState(keyboard.horizontal, keyboard.vertical);
+	}
+
+
+	public class KeyboardListener implements KeyListener {
+
+		byte horizontal; //represents horizontal output, 0 [00000000] for none, 1 [0000001] for left, 2 [00000010] for right
+		byte vertical; //represents vertical input, 0 [00000000] for none 1 [00000001] for left, 2 [00000010] for right
+
+		int horizNegative = KeyEvent.VK_A; //a is negative horizontal (left)
+		int horizPositive = KeyEvent.VK_D; //d is positive horizontal (right)
+		
+		int vertNegative = KeyEvent.VK_S ;//s is negative vertical (down)
+		int vertPositive = KeyEvent.VK_W; //w is positive vertical(up)
+		
+		
+		int horizontalPositive = 0;
+		int horizontalNegatve = 0;
+		int verticalPositive = 0;
+		int verticalNegative = 0;
+		@Override
+		public void keyPressed(KeyEvent e) { //key is down
+			System.out.println(e.getKeyCode());
+		}
+		@Override
+		public void keyReleased(KeyEvent e) { //key is released
+			//do nothing
+		}
+		@Override
+		public void keyTyped(KeyEvent e) { //key is down (and a standard unicode character)
+			//do nothing
+		}
+
+		
+		
+	}
+
+}

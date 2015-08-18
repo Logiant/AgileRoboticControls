@@ -2,8 +2,8 @@ package arc.msoe.hmi.comms;
 
 import arc.msoe.hmi.MainGUI;
 
-import com.sun.jna.Library;
-import com.sun.jna.Native;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 /**
@@ -15,28 +15,33 @@ import com.sun.jna.Native;
  */
 public class InputThread extends Thread {
 
-	DLL lib;
 	MainGUI gui;
-	
+	KeyboardListener keyboard;
 	int sleepMS = 20; //ms, time to sleep between updates
-	
+
 	volatile boolean running;
 
 	public InputThread(MainGUI gui) {
 		this.gui = gui;
-		String path = System.getProperty("user.dir") + "\\res\\";
-
-		lib = (DLL) Native.loadLibrary(path + "XboxInterface.dll", 
-				DLL.class);
+		keyboard = new KeyboardListener();
 	}
 
+	public KeyboardListener getKeyboard() {
+		return keyboard;
+	}
+	
 	@Override
 	public void run() {
 		running = true;
 
 		while(running) {
-			dllTest();
+			sendInput();
 			//sleep for 20 ms
+			try {
+				Thread.sleep(20); //sleep for 20 ms
+			} catch (InterruptedException e) {
+				e.printStackTrace(); //print the error
+			}
 		}
 
 	}
@@ -45,55 +50,63 @@ public class InputThread extends Thread {
 		running = false;
 	}
 
-	public void dllTest() {
-		gui.updateState(lib.getLeftJoyStick(0), lib.getRightJoyStick(0), lib.getTriggerStates(0), lib.getButtonStates(0));
+	public void sendInput() {
+		gui.updateState(keyboard.horizontal, keyboard.vertical);
 	}
-	//Test interface using JNA to load a .dll file
-	public interface DLL extends Library {
-		// FREQUENCY is expressed in hertz and ranges from 37 to 32767
-		// DURATION is expressed in milliseconds
-		/**
-		 * 
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return
-		 */
-		public int getLeftJoyStick(int controllerNumber);
 
-		/**
-		 * Gets the x and y values of the right controller joy stick
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return int - first short is the 
-		 */
-		public int getRightJoyStick(int controllerNumber);
 
-		/**
-		 * Gets all the non-analog button states from the Xbox controller
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return int representing each button on the Xbox controller
-		 * The following masks are used for each button
-		 * XINPUT_GAMEPAD_DPAD_UP	0x0001
-		 * XINPUT_GAMEPAD_DPAD_DOWN	0x0002
-		 * XINPUT_GAMEPAD_DPAD_LEFT	0x0004
-		 * XINPUT_GAMEPAD_DPAD_RIGHT	0x0008
-		 * XINPUT_GAMEPAD_START	0x0010
-		 * XINPUT_GAMEPAD_BACK	0x0020
-		 * XINPUT_GAMEPAD_LEFT_THUMB	0x0040
-		 * XINPUT_GAMEPAD_RIGHT_THUMB	0x0080
-		 * XINPUT_GAMEPAD_LEFT_SHOULDER	0x0100
-		 * XINPUT_GAMEPAD_RIGHT_SHOULDER	0x0200
-		 * XINPUT_GAMEPAD_A	0x1000
-		 * XINPUT_GAMEPAD_B	0x2000
-		 * XINPUT_GAMEPAD_X	0x4000
-		 * XINPUT_GAMEPAD_Y	0x8000
-		 */
-		public int getButtonStates(int controllerNumber);
+	public class KeyboardListener implements KeyListener {
 
-		/**
-		 * Returns the analog values of each trigger 
-		 * @param controllerNumber Number of the Xbox Controller (0 - 3)
-		 * @return A short representing the left trigger in the most significant
-		 * byte and the right trigger in the least significant byte
-		 */
-		public short getTriggerStates(int controllerNumber);
+		byte horizontal; //represents horizontal output, 0 [00000000] for none, 1 [0000001] for right, 2 [00000010] for left
+		byte vertical; //represents vertical input, 0 [00000000] for none 1 [00000001] for up, 2 [00000010] for down
+
+		int horizNegative = KeyEvent.VK_A; //a is negative horizontal (left)
+		int horizPositive = KeyEvent.VK_D; //d is positive horizontal (right)
+		int altHorizNegative = KeyEvent.VK_LEFT; //left (arrow key) is negative horizontal (left)
+		int altHorizPositive = KeyEvent.VK_RIGHT; //right (arrow key) is positive horizontal (right)
+		
+		int vertNegative = KeyEvent.VK_S ; //s is negative vertical (down)
+		int vertPositive = KeyEvent.VK_W; //w is positive vertical(up)
+		int altVertNegative = KeyEvent.VK_DOWN; //down (arrow key) is negative horizontal (left)
+		int altVertPositive = KeyEvent.VK_UP; //up (arrow key) is positive horizontal (right)
+		
+		int horizontalPositive = 0;
+		int horizontalNegatve = 0;
+		int verticalPositive = 0;
+		int verticalNegative = 0;
+		@Override
+		public void keyPressed(KeyEvent e) { //key is down
+			int code = e.getKeyCode();
+			if (code == horizNegative || code == altHorizNegative) {
+				horizontal = 1; //[00000001]
+			} else if (code == horizPositive || code == altHorizPositive) {
+				horizontal = 2; //[00000010]
+			} else if (code == vertNegative || code == altVertNegative) {
+				vertical = 2; //[00000010]
+			}else if (code == vertPositive || code == altVertPositive) {
+				vertical = 1; //[00000001]
+			}
+		}
+		@Override
+		public void keyReleased(KeyEvent e) { //key is released
+			int code = e.getKeyCode();
+			if (code == horizNegative || code == altHorizNegative) {
+				horizontal = 0; //[00000001]
+			} else if (code == horizPositive || code == altHorizPositive) {
+				horizontal = 0; //[00000010]
+			} else if (code == vertNegative || code == altVertNegative) {
+				vertical = 0; //[00000010]
+			}else if (code == vertPositive || code == altVertPositive) {
+				vertical = 0; //[00000001]
+			}
+		}
+		@Override
+		public void keyTyped(KeyEvent e) { //key is down (and a standard unicode character)
+			//do nothing
+		}
+
+		
+		
 	}
+
 }
